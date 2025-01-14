@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logok from "./assets/logok.png";
 import mapImage from "./assets/map.jpg";
-import profileIcon from "./assets/ProfileIcon.jpg";
+import profileIcon from "./assets/profile.png";
 import ProductShowCase from "./commponents/ProductShowCase";
 import Testimonial from "./commponents/Testimonial";
 import Hero from "./commponents/Hero";
@@ -45,16 +45,14 @@ function App() {
 	return (
 		//Buat Background
 		<div className="min-h-screen bg-background overflow-x-hidden px-15">
-
 			{/* Navbar */}
-			<nav className="bg-putih flex items-center justify-between px-8 py-4 border-1 rounded-2xl fixed top-0 left-0 right-0 ">
-
-        {/* Teks Kedai Manang */}
-				<h1 className="text-2xl font-semibold text-primary">
+			<nav className="bg-white flex items-center justify-between px-6 py-3 border-1 rounded-2xl fixed top-[20px] left-10 right-10 ">
+				{/* Teks Kedai Manang */}
+				<h1 className="text-2xl font-semibold text-color_primary leading-6">
 					Kedai Manang
 				</h1>
-
-				<div className="hidden md:flex items-center text-gray-400 gap-10 text-lg mx-auto">
+				{/* Router Navbar */}
+				<div className="hidden md:flex items-center text-color_black_200 gap-10 text-1.25 leading-6 mx-auto">
 					{[
 						{ label: "Lokasi", id: "location" },
 						{ label: "Menu", id: "menu" },
@@ -69,11 +67,12 @@ function App() {
 							onClick={() =>
 								scrollToSection(item.id)
 							}
-							className="relative px-4 py-2 rounded-full hover:bg-blue-500 hover:text-white transition duration-200 hover:scale-105 hover:shadow-lg">
+							className="hover:text-color_primary transition duration-200 hover:scale-105">
 							{item.label}
 						</button>
 					))}
 				</div>
+				{/* Profile Icon */}
 				<div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:relative sm:top-auto sm:transform-none">
 					<img
 						src={profileIcon}
@@ -122,7 +121,7 @@ function App() {
 					)}
 				</div>
 			)}
-
+			{/* Panel Jadwal Toko */}
 			<div
 				id="location"
 				className="bg-blue-600 text-white py-6 px-6 flex flex-col md:flex-row items-center justify-between mx-4 md:mx-10 my-10 rounded-lg gap-4">

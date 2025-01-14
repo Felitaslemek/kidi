@@ -9,14 +9,21 @@ export default {
       // Untuk warna
       colors: {
         background: '#f6f6f6', //Untuk background 
-        primary: '297BFF',
-        putih: '#ffffff',
+        color_primary: '#297BFF',
+        color_black_200: '#666C77',
+        white: '#ffffff',
       },
 
       //Untuk space
       spacing: {
+        '20px': '20px',
         '8xl': '80px',
       },
+
+      //Font
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'sans']
+      }
     },
   },
   plugins: [],
