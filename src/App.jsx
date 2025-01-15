@@ -43,20 +43,17 @@ function App() {
 	};
 
 	return (
-    
 		//Buat Background
-		<div className="min-h-screen bg-background overflow-x-hidden px-6">
-
+		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6">
 			{/* Navbar */}
-			<nav className="bg-white flex items-center justify-between px-6 py-3 rounded-2xl fixed top-4 left-6 right-6 mt-6">
-
+			<nav className="bg-color_nuetral_100_light flex items-center justify-between px-6 py-3 rounded-2xl fixed top-4 left-6 right-6 mt-6">
 				{/* Teks Kedai Manang */}
-				<h1 className="text-2xl font-semibold text-color_primary">
+				<h1 className="text-2xl font-semibold text-color_primary_500_light">
 					Kedai Manang
 				</h1>
 
 				{/* Router Navbar */}
-				<div className="hidden md:flex items-center font-normal text-color_black_to_white_200 gap-10 text-1.25 leading-6 mx-auto">
+				<div className="hidden md:flex items-center font-normal text-color_nuetral_400_light gap-10 text-1.25 leading-6 mx-auto">
 					{[
 						{ label: "Lokasi", id: "location" },
 						{ label: "Menu", id: "menu" },
@@ -71,14 +68,13 @@ function App() {
 							onClick={() =>
 								scrollToSection(item.id)
 							}
-							className="hover:text-color_primary transition duration-200 hover:scale-105">
+							className="hover:text-color_primary_500_light transition duration-200 hover:scale-105">
 							{item.label}
 						</button>
 					))}
 				</div>
-				{/* Profile Icon */}
 
-				{/* <div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:relative sm:top-auto sm:transform-none"> */}
+				{/* Profile Icon */}
 				<div className=" sm:relative sm:top-auto sm:transform-none">
 					<img
 						src={profileIcon}
@@ -127,17 +123,27 @@ function App() {
 					)}
 				</div>
 			)}
+
 			<div id="location">
 				<Information />
 			</div>
-			<Hero />
+
+			<div className="mt-6">
+				<Hero />
+			</div>
+
 			<div id="menu">
 				<ProductShowCase />
 			</div>
+
 			<div id="testimonials">
 				<Testimonial />
 			</div>
-			<End />
+
+			<div>
+				<End />
+			</div>
+
 			<div id="contact">
 				<Footer />
 			</div>
