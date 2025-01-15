@@ -13,7 +13,7 @@ const Hero = () => {
 					<span className="text-color_primary_500_light">
 						solusi
 					</span>{" "}
-					segala <br /> macam perut lapar 😆
+					segala macam perut lapar 😆
 				</h2>
 				<p className="text-color_nuetral_600_light">
 					Lokasi strategis untuk Anda <br />
@@ -22,7 +22,7 @@ const Hero = () => {
 			</div>
 
 			{/* Embed Google Maps */}
-			<div className="w-full h-96 overflow-hidden rounded-2xl">
+			<div className="w-full h-96 overflow-hidden rounded-lg">
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.63778145287!2d110.4187902871427!3d-7.011285324295994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d2fd7afca71%3A0x921193cb14508ddb!2sKedai%20Manang!5e0!3m2!1sen!2sid!4v1699875207000!5m2!1sen!2sid"
 					width="100%"
@@ -38,7 +38,7 @@ const Hero = () => {
 				href="https://www.google.com/maps/place/Kedai+Manang"
 				target="_blank"
 				rel="noopener noreferrer">
-				<button className="w-full bg-color_primary_500_light text-color_nuetral_100_light font-semibold py-3 rounded-2xl hover:bg-color_primary_300_light transition-colors flex justify-center items-center">
+				<button className="w-full bg-color_primary_500_light text-color_nuetral_100_light font-semibold py-3 rounded-lg hover:bg-color_primary_300_light transition-colors flex justify-center items-center">
 					Lihat lokasi toko
 					<span className="ml-2 flex items-center">
 						<svg
