@@ -2,7 +2,7 @@ import React from 'react';
 import tampilan from '../assets/tampilan.png';
 
 
-const Hero = () => {
+const End = () => {
   return (
     <section className="bg-blue-600 text-white rounded-lg p-6 md:p-12 text-center max-w-3xl mx-auto mt-10">
       <h1 className="text-2xl md:text-4xl font-semibold">
@@ -34,4 +34,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default End;

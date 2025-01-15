@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import logok from "./assets/logok.png";
-import mapImage from "./assets/map.jpg";
 import profileIcon from "./assets/profile.png";
-import ProductShowCase from "./commponents/ProductShowCase";
-import Testimonial from "./commponents/Testimonial";
-import Hero from "./commponents/Hero";
-import Footer from "./commponents/Footer";
-import LoginPage from "./commponents/LoginPage";
-import SignupPage from "./commponents/SignupPage";
+import ProductShowCase from "./components/ProductShowCase";
+import Testimonial from "./components/Testimonial";
+import End from "./components/lastSection";
+import Footer from "./components/Footer";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
+import Information from "./components/Information";
+import Hero from "./components/Hero";
 
 function App() {
 	const [isModalOpen, setIsModalOpen] =
@@ -43,16 +43,20 @@ function App() {
 	};
 
 	return (
+    
 		//Buat Background
-		<div className="min-h-screen bg-background overflow-x-hidden px-15">
+		<div className="min-h-screen bg-background overflow-x-hidden px-6">
+
 			{/* Navbar */}
-			<nav className="bg-white flex items-center justify-between px-6 py-3 border-1 rounded-2xl fixed top-[20px] left-10 right-10 ">
+			<nav className="bg-white flex items-center justify-between px-6 py-3 rounded-2xl fixed top-4 left-6 right-6 mt-6">
+
 				{/* Teks Kedai Manang */}
-				<h1 className="text-2xl font-semibold text-color_primary leading-6">
+				<h1 className="text-2xl font-semibold text-color_primary">
 					Kedai Manang
 				</h1>
+
 				{/* Router Navbar */}
-				<div className="hidden md:flex items-center text-color_black_200 gap-10 text-1.25 leading-6 mx-auto">
+				<div className="hidden md:flex items-center font-normal text-color_black_to_white_200 gap-10 text-1.25 leading-6 mx-auto">
 					{[
 						{ label: "Lokasi", id: "location" },
 						{ label: "Menu", id: "menu" },
@@ -73,11 +77,13 @@ function App() {
 					))}
 				</div>
 				{/* Profile Icon */}
-				<div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:relative sm:top-auto sm:transform-none">
+
+				{/* <div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:relative sm:top-auto sm:transform-none"> */}
+				<div className=" sm:relative sm:top-auto sm:transform-none">
 					<img
 						src={profileIcon}
 						alt="Profile Icon"
-						className="w-10 h-10 rounded-full cursor-pointer"
+						className="w-6 h-6 rounded-full cursor-pointer"
 						onClick={toggleModal}
 					/>
 				</div>
@@ -121,89 +127,17 @@ function App() {
 					)}
 				</div>
 			)}
-			{/* Panel Jadwal Toko */}
-			<div
-				id="location"
-				className="bg-blue-600 text-white py-6 px-6 flex flex-col md:flex-row items-center justify-between mx-4 md:mx-10 my-10 rounded-lg gap-4">
-				<div className="flex items-center gap-4">
-					<div className="bg-white/20 p-2 rounded-lg">
-						<img
-							src={logok}
-							alt="Logok"
-							className="w-12 h-12"
-						/>
-					</div>
-					<div>
-						<p className="font-semibold">
-							Kedai Sudah Buka
-						</p>
-						<p className="text-sm text-blue-100">
-							17:00 - 22:00 WIB
-						</p>
-					</div>
-				</div>
-				<a
-					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
-					target="_blank"
-					rel="noopener noreferrer">
-					<button className="bg-white text-blue-600 px-8 py-2 rounded-lg text-sm font-semibold hover:bg-blue-200 transition-colors">
-						Lihat lokasi toko →
-					</button>
-				</a>
+			<div id="location">
+				<Information />
 			</div>
-
-			<div className="max-w-3xl mx-auto text-center px-4 py-12">
-				<p className="text-lg mb-4 text-gray-600">
-					Halo, Selamat Datang!
-				</p>
-				<h2 className="text-3xl md:text-4xl font-semibold mb-4">
-					Kedai kami adalah{" "}
-					<span className="text-blue-600 font-semibold">
-						solusi
-					</span>{" "}
-					segala macam perut lapar 😆
-				</h2>
-				<p className="text-gray-600">
-					Lokasi strategis untuk Anda yang ingin
-					pergi kemana-mana
-				</p>
-			</div>
-
-			<div className="max-w-5xl mx-auto px-4 mb-8">
-				<a
-					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="bg-gray-100 rounded-lg overflow-hidden block">
-					<img
-						src={mapImage}
-						alt="Store Location Map"
-						className="w-full h-auto object-cover"
-					/>
-				</a>
-			</div>
-
-			<div className="px-4 sm:px-16 pb-16">
-				<a
-					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
-					target="_blank"
-					rel="noopener noreferrer">
-					<button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">
-						Lihat lokasi toko →
-					</button>
-				</a>
-			</div>
-
+			<Hero />
 			<div id="menu">
 				<ProductShowCase />
 			</div>
-
 			<div id="testimonials">
 				<Testimonial />
 			</div>
-
-			<Hero />
-
+			<End />
 			<div id="contact">
 				<Footer />
 			</div>
