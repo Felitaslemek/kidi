@@ -25,7 +25,7 @@ function ProductShowcase() {
 		},
 		{
 			id: 2,
-			name: "Corndog (Sosis/Keju Moza)",
+			name: "Corndog",
 			price: "6-8K",
 			image: corndog,
 			priceImage: pricecorndog,
@@ -47,7 +47,7 @@ function ProductShowcase() {
 	];
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col gap-5">
 			<div className="text-center flex flex-col gap-3">
 				<p className="text-color_nuetral_600_light font-regular text-sm">
 					Menu Kami
@@ -58,7 +58,7 @@ function ProductShowcase() {
 						Jajanan terjangkau 🤤
 					</span>
 				</h2>
-				<p className="text-color_nuetral_600_light text-base mb-4">
+				<p className="text-color_nuetral_600_light text-base">
 					Kami menyediakan berbagai macam <br />{" "}
 					jajanan kekinian dari churros hingga
 					corndog
@@ -85,11 +85,11 @@ function ProductShowcase() {
 								className="w-full h-full object-cover rounded-t-lg"
 							/>
 						</div>
-						<div className="absolute bottom-0 left-0 right-0 p-3 text-color_nuetral_100_light rounded-b-2xl flex justify-between">
-							<span className="font-semibold text-sm">
+						<div className="absolute bottom-0 left-0 right-0 p-4 text-color_nuetral_100_light rounded-b-2xl flex justify-between">
+							<span className="font-semibold text-3xl">
 								{item.name}
 							</span>
-							<span className="font-semibold text-sm">
+							<span className="font-semibold text-2xl">
 								{item.price}
 							</span>
 						</div>
@@ -97,7 +97,7 @@ function ProductShowcase() {
 				))}
 			</div>
 
-			<div className="px-8 sm:px-16 pb-16">
+			<div>
 				<a
 					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
 					target="_blank"
