@@ -47,7 +47,7 @@ export default {
 
         //Nuetral
         color_nuetral_100_light: '#FFFFFF',
-        color_neutral_200_light: '#C0C0C0',
+        color_nuetral_200_light: '#C0C0C0',
         color_nuetral_300_light: '#AAAAAA',
         color_nuetral_400_light: '#949494',
         color_nuetral_500_light: '#7E7E7E',
