@@ -132,7 +132,7 @@ function App() {
 				<Hero />
 			</div>
 
-			<div id="menu">
+			<div id="menu" className="mt-6">
 				<ProductShowCase />
 			</div>
 
