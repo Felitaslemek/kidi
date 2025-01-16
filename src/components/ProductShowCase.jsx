@@ -26,7 +26,7 @@ function ProductShowcase() {
 		{
 			id: 2,
 			name: "Corndog",
-			price: "6-8K",
+			price: "6 & 8K",
 			image: corndog,
 			// priceImage: pricecorndog,
 		},
