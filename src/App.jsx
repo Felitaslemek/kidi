@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import profileIcon from "./assets/profile.png";
 import ProductShowCase from "./components/ProductShowCase";
-import Testimonial from "./components/Testimonial";
+import Testimonial from "./components/Testimoni";
 import End from "./components/lastSection";
 import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage";
