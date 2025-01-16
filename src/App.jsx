@@ -140,12 +140,14 @@ function App() {
 				<Testimonial />
 			</div>
 
-			<div>
+			<div className="mt-6">
 				<End />
 			</div>
 
-			<div id="contact">
-				<Footer />
+			<div id="contact" className="mt-6">
+				<div className="-mx-6 md:-mx-12">
+					<Footer />
+				</div>
 			</div>
 		</div>
 	);
