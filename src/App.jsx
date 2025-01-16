@@ -8,6 +8,9 @@ import Hero from './commponents/Hero';
 import Footer from './commponents/Footer';
 import LoginPage from './commponents/LoginPage';
 import SignupPage from './commponents/SignupPage';
+import Dashboard from './admin/Dashboard';
+import Testi from './admin/Testimoni';
+import Menu from './admin/Menu';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,7 +90,13 @@ function App() {
                   className="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
                   onClick={showLoginPage}
                 >
-                  Masuk
+                  Masuk Sebagai Admin
+                </button>
+                <button 
+                  className="bg-gray-100 text-blue-500 py-2 rounded-lg hover:bg-gray-200 transition-color"
+                  onClick={showLoginPage}
+                >
+                  Masuk Sebagai User
                 </button>
                 <button 
                   className="bg-gray-100 text-blue-500 py-2 rounded-lg hover:bg-gray-200 transition-colors"
@@ -170,6 +179,9 @@ function App() {
       <div id="contact">
         <Footer />
       </div>
+      <Dashboard/>
+      <Testi />
+      <Menu />
     </div>
   );
 }
