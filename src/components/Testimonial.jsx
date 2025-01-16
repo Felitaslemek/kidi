@@ -16,6 +16,18 @@ function Testimonial() {
 				text: "Churrosnya enak banget, apalagi rasanya unik",
 				rating: 5,
 			},
+			{
+				id: 3,
+				name: "Bagas D",
+				text: "Churrosnya enak banget, apalagi rasanya unik",
+				rating: 5,
+			},
+			{
+				id: 4,
+				name: "Bagas D",
+				text: "Churrosnya enak banget, apalagi rasanya unik",
+				rating: 5,
+			},
 		]);
 
 	const [showForm, setShowForm] = useState(false);
@@ -88,34 +100,31 @@ function Testimonial() {
 	};
 
 	return (
-		<div className="">
-			<div className="text-center">
-				<p className="text-lg font-regular text-gray-600">
+		<div className="flex flex-col gap-5">
+			<div className="text-center flex flex-col gap-4 mt-6">
+				<p className="text-sm font-regular text-color_nuetral_600_light">
 					Testimoni
 				</p>
 				<h2 className="text-2xl font-semibold">
 					Cerita mereka{" "}
-					<span className="text-blue-500 text-2xl font-semibold">
+					<span className="text-color_primary_500_light text-2xl font-semibold">
 						bermula
 					</span>{" "}
-					ketika
+					ketika mencoba jajanan kami 🥰
 				</h2>
-				<h3 className="text-2xl font-semibold">
-					mencoba jajanan kami 🥰
-				</h3>
-				<p className="text-gray-600 font-regular">
+				<p className="text-color_nuetral_600_light font-regular">
 					Ayo berikan testimoni Anda
 				</p>
 			</div>
 
-			<div className="overflow-x-auto">
+			<div className="overflow-x-scroll scrollbar-hide">
 				<div
-					className="flex gap-6"
+					className="flex gap-5"
 					style={{ minWidth: "max-content" }}>
 					{testimonials.map((testimonial) => (
 						<div
 							key={testimonial.id}
-							className="bg-white p-6 rounded-lg shadow-md w-80">
+							className="bg-color_nuetral_100_light p-6 rounded-lg w-80">
 							<h3 className="font-semibold mb-2">
 								{testimonial.name}
 							</h3>
@@ -132,12 +141,30 @@ function Testimonial() {
 
 			{/* Button ke Testimoni Input */}
 			<button
-				onClick={() => setShowForm(!showForm)}
-				className="w-full bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
-				Berikan testimoni →
+				// onClick={() => setShowForm(!showForm)}
+				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex">
+				Berikan testimoni
+				<span className="ml-2">
+					<svg
+						width="21"
+						height="21"
+						viewBox="0 0 21 18"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						className="inline-block align-middle">
+						<path
+							d="M12.4531 16.1833C12.2948 16.1833 12.1364 16.125 12.0114 16C11.7698 15.7583 11.7698 15.3583 12.0114 15.1166L16.6281 10.5L12.0114 5.88331C11.7698 5.64164 11.7698 5.24164 12.0114 4.99998C12.2531 4.75831 12.6531 4.75831 12.8948 4.99998L17.9531 10.0583C18.1948 10.3 18.1948 10.7 17.9531 10.9416L12.8948 16C12.7698 16.125 12.6114 16.1833 12.4531 16.1833Z"
+							fill="#FFFFFF"
+						/>
+						<path
+							d="M17.3698 11.125H3.34476C3.0031 11.125 2.71976 10.8417 2.71976 10.5C2.71976 10.1583 3.0031 9.875 3.34476 9.875H17.3698C17.7114 9.875 17.9948 10.1583 17.9948 10.5C17.9948 10.8417 17.7114 11.125 17.3698 11.125Z"
+							fill="#FFFFFF"
+						/>
+					</svg>
+				</span>
 			</button>
 
-			{showForm && (
+			{/* {showForm && (
 				<div className="mt-6 p-6 bg-white rounded-lg shadow-md">
 					<form
 						onSubmit={handleSubmit}
@@ -188,8 +215,8 @@ function Testimonial() {
 							Kirim Testimoni →
 						</button>
 					</form>
-				</div>
-			)}
+					</div> 
+			)}*/}
 		</div>
 	);
 }

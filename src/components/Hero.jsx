@@ -4,17 +4,17 @@ const Hero = () => {
 	return (
 		<div className="flex flex-col gap-5">
 			{/* Konten Hero */}
-			<div className="flex flex-col text-center gap-y-3">
+			<div className="flex flex-col text-center gap-4">
 				<p className="text-sm text-color_nuetral_600_light">
 					Halo, Selamat Datang!
 				</p>
-				<h2 className="text-2xl font-semibold">
+				<h1 className="text-2xl font-semibold">
 					Kedai kami adalah{" "}
 					<span className="text-color_primary_500_light">
 						solusi
 					</span>{" "}
 					segala macam perut lapar 😆
-				</h2>
+				</h1>
 				<p className="text-color_nuetral_600_light">
 					Lokasi strategis untuk Anda <br />
 					yang ingin pergi kemana-mana
@@ -39,7 +39,7 @@ const Hero = () => {
 				target="_blank"
 				rel="noopener noreferrer">
 				<button className="w-full bg-color_primary_500_light text-color_nuetral_100_light font-semibold py-3 rounded-lg hover:bg-color_primary_300_light transition-colors flex justify-center items-center">
-					Lihat lokasi toko
+					Lihat lokasi toko{" "}
 					<span className="ml-2 flex items-center">
 						<svg
 							width="21"

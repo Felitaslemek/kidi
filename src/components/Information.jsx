@@ -4,7 +4,7 @@ import Toko from "../assets/toko.png";
 const Information = () => {
 	return (
 		// Background
-		<div className="bg-color_primary_500_light text-color_nuetral_100_light py-5 px-5 mt-32 flex rounded-2xl justify-center gap-4">
+		<div className="bg-color_primary_500_light text-color_nuetral_100_light py-5 px-5 mt-28 flex rounded-2xl justify-center gap-4">
 			{/* Image */}
 			<div className="flex items-center">
 				<img

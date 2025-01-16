@@ -46,7 +46,7 @@ function App() {
 		//Buat Background
 		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-12">
 			{/* Navbar */}
-			<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed top-4 left-6 right-6 mt-6">
+			<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6">
 				{/* Teks Kedai Manang */}
 				<h1 className="text-2xl font-semibold text-color_primary_500_light">
 					Kedai Manang

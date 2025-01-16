@@ -49,7 +49,7 @@ function ProductShowcase() {
 	return (
 		// Text
 		<div className="flex flex-col gap-5 z-0">
-			<div className="text-center flex flex-col gap-3">
+			<div className="text-center flex flex-col gap-4">
 				<p className="text-color_nuetral_600_light font-regular text-sm">
 					Menu Kami
 				</p>
@@ -71,7 +71,7 @@ function ProductShowcase() {
 				{menuItems.map((item) => (
 					<div
 						key={item.id}
-						className="relative rounded-2xl overflow-hidden bg-white"
+						className="relative rounded-2xl overflow-hidden bg-color_nuetral_100_light"
 						// onMouseEnter={() =>
 						// 	handleHover(item.id)
 						// }
