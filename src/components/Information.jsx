@@ -15,7 +15,7 @@ const Information = () => {
 			</div>
 
 			{/* Teks */}
-			<div className="flex flex-col justify-center gap-4 md:flex-row md:items-center md:justify-between md:gap-16">
+			<div className="flex flex-col justify-center gap-4 md:w-full md:flex-row md:items-center md:justify-between">
 				<div className="flex flex-col gap-1">
 					<p className="font-semibold text-xl md:text-2xl">
 						Kedai Sudah Buka
