@@ -46,14 +46,14 @@ function App() {
 		//Buat Background
 		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-12">
 			{/* Navbar */}
-			<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6">
+			<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-12 md:right-12">
 				{/* Teks Kedai Manang */}
 				<h1 className="text-2xl font-semibold text-color_primary_500_light">
 					Kedai Manang
 				</h1>
 
 				{/* Router Navbar */}
-				<div className="hidden md:flex items-center font-normal text-color_nuetral_400_light gap-10 text-1.25 leading-6 mx-auto">
+				<div className="hidden md:flex items-center font-normal text-color_nuetral_400_light gap-10 text-1.25 mx-auto">
 					{[
 						{ label: "Lokasi", id: "location" },
 						{ label: "Menu", id: "menu" },
