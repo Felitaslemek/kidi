@@ -44,7 +44,7 @@ function App() {
 
 	return (
 		//Buat Background
-		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-14 lg:px-20">
+		<div className="min-h-screen bg-color_background_light overflow-x-hidden scrollbar-hide px-6 md:px-14 lg:px-20">
 			{/* Navbar */}
 			<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-14 md:right-14 lg:left-20 lg:right-20">
 				{/* Teks Kedai Manang */}
@@ -128,7 +128,7 @@ function App() {
 				<Information />
 			</div>
 
-			<div className="mt-6">
+			<div className="mt-6 md:mt-14">
 				<Hero />
 			</div>
 
