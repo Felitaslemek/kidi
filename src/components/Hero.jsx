@@ -5,17 +5,17 @@ const Hero = () => {
 		<div className="flex flex-col gap-5">
 			{/* Konten Hero */}
 			<div className="flex flex-col text-center gap-4">
-				<p className="text-sm text-color_nuetral_600_light">
+				<p className="text-sm text-color_nuetral_600_light md:text-base">
 					Halo, Selamat Datang!
 				</p>
-				<h1 className="text-2xl font-semibold">
+				<h1 className="text-2xl font-semibold leading-normal md:text-4xl md:leading-normal">
 					Kedai kami adalah{" "}
 					<span className="text-color_primary_500_light">
-						solusi
+						solusi <br />
 					</span>{" "}
 					segala macam perut lapar 😆
 				</h1>
-				<p className="text-color_nuetral_600_light">
+				<p className="text-color_nuetral_600_light md:text-xl md:leading-normal">
 					Lokasi strategis untuk Anda <br />
 					yang ingin pergi kemana-mana
 				</p>
