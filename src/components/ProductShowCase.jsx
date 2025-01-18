@@ -48,18 +48,18 @@ function ProductShowcase() {
 
 	return (
 		// Text
-		<div className="flex flex-col gap-5 z-0">
+		<div className="flex flex-col gap-5 z-0 md:gap-7">
 			<div className="text-center flex flex-col gap-4">
-				<p className="text-color_nuetral_600_light font-regular text-sm">
+				<p className="text-color_nuetral_600_light font-regular text-sm md:text-base">
 					Menu Kami
 				</p>
-				<h2 className="text-2xl font-semibold">
-					Menyediakan berbagai macam{" "}
+				<h2 className="text-2xl font-semibold md:leading-normal md:text-4xl">
+					Menyediakan berbagai macam <br />
 					<span className="text-color_primary_500_light">
 						jajanan terjangkau 🤤
 					</span>
 				</h2>
-				<p className="text-color_nuetral_600_light text-base">
+				<p className="text-color_nuetral_600_light text-base md:text-xl">
 					Kami menyediakan berbagai macam <br />{" "}
 					jajanan kekinian dari churros hingga
 					corndog
@@ -67,7 +67,7 @@ function ProductShowcase() {
 			</div>
 
 			{/* Gambar Produk */}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-semibold">
+			<div className="grid grid-cols-1 gap-4 font-semibold md:grid-cols-2 md:gap-6">
 				{menuItems.map((item) => (
 					<div
 						key={item.id}

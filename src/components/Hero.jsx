@@ -4,7 +4,7 @@ import Churros from "../assets/chuross.jpg";
 
 const Hero = () => {
 	return (
-		<div className="flex flex-col gap-5 md:gap-6">
+		<div className="flex flex-col gap-5 md:gap-7">
 			{/* Konten Hero */}
 			<div className="flex flex-col text-center gap-4">
 				<p className="text-sm text-color_nuetral_600_light md:text-base">

@@ -100,19 +100,19 @@ function Testimonial() {
 	};
 
 	return (
-		<div className="flex flex-col gap-5">
-			<div className="text-center flex flex-col gap-4 mt-6">
-				<p className="text-sm font-regular text-color_nuetral_600_light">
+		<div className="flex flex-col gap-5 md:gap-7">
+			<div className="text-center flex flex-col gap-4">
+				<p className="text-sm font-regular text-color_nuetral_600_light md:text-base">
 					Testimoni
 				</p>
-				<h2 className="text-2xl font-semibold">
+				<h2 className="text-2xl font-semibold md:text-4xl md:leading-normal">
 					Cerita mereka{" "}
-					<span className="text-color_primary_500_light text-2xl font-semibold">
+					<span className="text-color_primary_500_light">
 						bermula
 					</span>{" "}
-					ketika mencoba jajanan kami 🥰
+					ketika <br /> mencoba jajanan kami 🥰
 				</h2>
-				<p className="text-color_nuetral_600_light font-regular">
+				<p className="text-color_nuetral_600_light font-regular text-lg md:text-xl">
 					Ayo berikan testimoni Anda
 				</p>
 			</div>

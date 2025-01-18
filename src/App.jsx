@@ -132,15 +132,15 @@ function App() {
 				<Hero />
 			</div>
 
-			<div id="menu" className="mt-6">
+			<div id="menu" className="mt-6 md:mt-14">
 				<ProductShowCase />
 			</div>
 
-			<div id="testimonials">
+			<div id="testimonials" className="mt-6 md:mt-14">
 				<Testimonial />
 			</div>
 
-			<div className="mt-6">
+			<div className="mt-6 md:mt-14">
 				<End />
 			</div>
 
