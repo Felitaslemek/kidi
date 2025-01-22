@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import profileIcon from "./assets/profile.png";
-import ProductShowCase from "./components/ProductShowCase";
-import Testimonial from "./components/Testimoni";
-import End from "./components/lastSection";
-import Footer from "./components/Footer";
-import LoginPage from "./components/LoginPage";
+import ProductShowCase from "./pages/ProductShowCase";
+import Testimonial from "./pages/Testimoni";
+import End from "./pages/lastSection";
+import Footer from "./pages/Footer";
+import LoginPage from "./controller/LoginPage";
 import SignupPage from "./components/SignupPage";
-import Information from "./components/Information";
-import Hero from "./components/Hero";
+import Information from "./pages/Information";
+import Hero from "./pages/Hero";
 
 function App() {
 	const [isModalOpen, setIsModalOpen] =
@@ -145,7 +145,7 @@ function App() {
 			</div>
 
 			<div id="contact" className="mt-6">
-				<div className="-mx-6 md:-mx-12">
+				<div className="-mx-6 md:-mx-12 lg:-mx-20">
 					<Footer />
 				</div>
 			</div>

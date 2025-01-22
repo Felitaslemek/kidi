@@ -117,7 +117,7 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-x-scroll scrollbar-hide">
+			<div className="overflow-auto scrollbar-hide">
 				<div
 					className="flex gap-5"
 					style={{ minWidth: "max-content" }}>
