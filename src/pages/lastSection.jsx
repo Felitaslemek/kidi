@@ -3,12 +3,12 @@ import tampilan from "../assets/tampilan.png";
 
 const End = () => {
 	return (
-		<section className="bg-color_primary_500_light text-color_nuetral_100_light rounded-2xl p-5 flex flex-col gap-y-4 items-center">
-			<h1 className="text-2xl font-semibold">
+		<section className="bg-color_primary_500_light text-color_nuetral_100_light rounded-2xl p-5 flex flex-col gap-y-4 items-center md:p-7 md:gap-y-6">
+			<h1 className="text-2xl font-semibold md:text-4xl md:leading-normal">
 				Jajanan terjangkau, <br /> solusi perut
 				lapar 😉
 			</h1>
-			<p className="text-sm text-color_primary_200_light font-regular">
+			<p className="text-base text-color_primary_200_light font-regular md:text-lg">
 				Ya di Kedai Manang dong!
 			</p>
 			<div className="rounded-lg">
