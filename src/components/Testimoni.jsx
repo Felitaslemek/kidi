@@ -18,8 +18,8 @@ function Testimonial() {
 			},
 			{
 				id: 3,
-				name: "Bagas D",
-				text: "Churrosnya enak banget, apalagi rasanya unik",
+				name: "Sigma Boy",
+				text: "Enak dan worthit,ubur-ubur ikan lele manteb le",
 				rating: 5,
 			},
 			{
