@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer className="bg-color_nuetral_100_light text-color_nuetral_900_light py-5 px-6 left-0 right-0">
+		<footer className="bg-color_nuetral_100_light text-color_nuetral_900_light py-5 px-6 left-0 right-0 md:p-10">
 			<div className="flex gap-3 items-center justify-between">
 				{/* Kedai Manang Section */}
 				<div>

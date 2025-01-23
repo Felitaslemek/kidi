@@ -28,7 +28,7 @@ export default function TestimonialAdmin() {
         <div className="bg-white shadow rounded-lg p-6">
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Testimoni Baru</h2>
           <div className="border rounded-lg p-4">
-            <h3 className="font-semibold font-medium mb-2">Andrian Tara</h3>
+            <h3 className="font-semibold mb-2">Andrian Tara</h3>
             <p className="text-gray-600 text-sm mb-2">
               Corndog enak, topingnya banyak... worth it banget buat dicoba
             </p>
