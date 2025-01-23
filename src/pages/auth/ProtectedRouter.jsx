@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import ErrorBoundary from "../../errors/errorBoundary";
 
 const ProtectedRoute = ({ role, children }) => {
 	if (role === null) {
@@ -9,7 +10,9 @@ const ProtectedRoute = ({ role, children }) => {
 	return role === "admin" ? (
 		children
 	) : (
-		<Navigate to="../pages/admin/Dashboard" />
+		<ErrorBoundary>
+			<Navigate to="../pages/admin/Dashboard" />
+		</ErrorBoundary>
 	);
 };
 

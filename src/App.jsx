@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import profileIcon from "./assets/profile.png";
-import ProductShowCase from "./pages/ProductShowCase";
-import Testimonial from "./pages/Testimoni";
-import End from "./pages/lastSection";
-import Footer from "./pages/Footer";
-import SignupPage from "./components/SignupPage";
-import Information from "./pages/Information";
-import Hero from "./pages/Hero";
-import ErrorBoundary from "./err/errorBoundary";
+import ProductShowCase from "./pages/home/ProductShowCase";
+import Testimonial from "./pages/home/Testimoni";
+import End from "./pages/home/lastSection";
+import Footer from "./pages/home/Footer";
+import SignupPage from "./pages/auth/SignupPage";
+import Information from "./pages/home/Information";
+import Hero from "./pages/home/Hero";
+import ErrorBoundary from "./errors/errorBoundary";
 
 function App() {
 	const [
