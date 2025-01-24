@@ -1,6 +1,6 @@
 import React from "react";
-import Toko from "../assets/tampilan.png";
-import Churros from "../assets/chuross.jpg";
+import Toko from "../../assets/tampilan.png";
+import Churros from "../../assets/chuross.jpg";
 
 const Hero = () => {
 	return (

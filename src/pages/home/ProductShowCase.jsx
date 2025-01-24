@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import chuross from "../assets/chuross.jpg";
-import otak from "../assets/otak.jpg";
-import corndog from "../assets/corndog.jpg";
-import citul from "../assets/citul.jpg";
-import pricechuross from "../assets/pricechuross.jpg";
-import pricecorndog from "../assets/pricecorndog.jpg";
-import pricecitul from "../assets/pricecitul.jpg";
-import priceotak from "../assets/priceotak.jpg";
+import chuross from "../../assets/chuross.jpg";
+import otak from "../../assets/otak.jpg";
+import corndog from "../../assets/corndog.jpg";
+import citul from "../../assets/citul.jpg";
 
 function ProductShowcase() {
 	const [hoveredItem, setHoveredItem] =
