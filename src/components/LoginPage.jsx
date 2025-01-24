@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import loginPreview from "../assets/login.png";
+import buat from "../assets/buat.png";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -143,10 +143,10 @@ const LoginPage = () => {
                 <br />
                 solusi perut lapar
               </h2>
-              <div className="relative w-full max-w-md mx-auto h-auto rounded-3xl overflow-hidden shadow-xl">
+              <div className="relative w-full max-w-sm mx-auto h-full flex">
                 <img
-                  src={loginPreview || "/placeholder.svg"}
-                  alt="Login Preview"
+                  src={buat || "/placeholder.svg"}
+                  alt="Buat"
                   className="w-full h-full object-cover"
                 />
               </div>

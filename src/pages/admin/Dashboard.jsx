@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4">
       {/* Header */}
-      <header className="w-full flex flex-wrap justify-between items-center bg-white shadow p-4 rounded-lg max-w-6xl">
+      <header className="w-full flex flex-wrap justify-between items-center bg-blue-300 shadow p-4 rounded-lg max-w-6xl">
         <h1 className="text-xl font-semibold text-blue-600">Kedai Manang</h1>
         <nav className="flex flex-wrap gap-4 text-gray-600">
           <a href="#" className="hover:text-blue-600">
@@ -53,11 +53,7 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* Laporan */}
-        <div className="bg-white shadow p-6 rounded-md sm:col-span-2 lg:col-span-3">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Laporan</h2>
-          <div className="h-40 bg-gray-100 rounded-md"></div>
-        </div>
+        
       </main>
     </div>
   );
