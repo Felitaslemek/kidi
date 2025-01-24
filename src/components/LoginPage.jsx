@@ -23,7 +23,7 @@ const LoginPage = () => {
       setIsSuccess(true);
       setTimeout(() => {
         setIsSuccess(false);
-        navigate("/admin/dashboard"); // Redirect ke halaman admin
+        navigate("admin/dashboard"); // Redirect ke halaman admin
       }, 1000);
     } else {
       setIsSuccess(true);
@@ -51,7 +51,7 @@ const LoginPage = () => {
 
         {/* Notifikasi berhasil login */}
         {isSuccess && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black text-sm font-semibold px-4 py-2">
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-green-500 text-sm font-semibold px-4 py-2">
             Login berhasil!
           </div>
         )}

@@ -16,7 +16,7 @@ const Footer = () => {
 				</div>
 
 				{/* Servis Section */}
-				<div className="flex gap-4">
+				<div className="flex gap-12">
 					<div>
 						<h3 className="font-semibold text-color_nuetral_900_light text-base">
 							Servis
@@ -48,7 +48,7 @@ const Footer = () => {
 
 					{/* Kontak Section */}
 					<div>
-						<h3 className="font-semibold text-color_nuetral_900_light text-base">
+						<h3 className="flex gap-60 font-semibold text-color_nuetral_900_light">
 							Kontak
 						</h3>
 						<ul className="mt-2 text-xs">

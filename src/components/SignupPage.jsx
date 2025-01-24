@@ -37,7 +37,7 @@ const SignupPage = () => {
 
         {/* Notifikasi berhasil buat akun */}
         {isSuccess && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black text- font-semibold px-4 py-2">
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-green-500 text- font-semibold px-4 py-2">
             Akun berhasil dibuat!
           </div>
         )}

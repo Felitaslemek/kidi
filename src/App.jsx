@@ -10,6 +10,7 @@ import SignupPage from "./components/SignupPage";
 import Information from "./pages/Information";
 import Hero from "./pages/Hero";
 import Dashboard from "./pages/admin/Dashboard";
+import ProtectedRoute from "./components/ProtectedRouter";
 
 
 const Navbar = ({ scrollToSection }) => (
@@ -78,8 +79,8 @@ const HomePage = () => {
         <End />
       </div>
 
-      <div id="contact" className="mt-6">
-        <div className="-mx-6 md:-mx-12">
+      <div id="contact" className="mt-6 md:mt-10">
+        <div className="-mx-6 md:-mx-20">
           <Footer />
         </div>
       </div>
@@ -102,7 +103,7 @@ function App() {
 
          {/* Halaman Admin Dashboard */}
          <Route
-          path="/admin"
+          path="admin/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
