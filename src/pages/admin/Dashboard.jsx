@@ -1,6 +1,6 @@
 import React from "react";
-import logok from "../assets/logok.png";
-import logout from "../assets/logout.png";
+import logok from "../../assets/toko.png";
+import logout from "../../assets/logout.png";
 
 const Dashboard = () => {
   return (
