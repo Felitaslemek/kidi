@@ -9,6 +9,8 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import Information from "./pages/Information";
 import Hero from "./pages/Hero";
+import Dashboard from "./pages/admin/Dashboard";
+
 
 const Navbar = ({ scrollToSection }) => (
   <nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-14 md:right-14 lg:left-20 lg:right-20">
@@ -97,6 +99,16 @@ function App() {
 
         {/* Halaman Signup */}
         <Route path="/signup" element={<SignupPage />} />
+
+         {/* Halaman Admin Dashboard */}
+         <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

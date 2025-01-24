@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
-import loginPreview from '../assets/login.png';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import loginPreview from "../assets/login.png";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const navigate = useNavigate();
 
+  // Daftar email khusus admin
+  const adminEmails = ["admin@example.com", "superadmin@example.com"];
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('Login attempted with:', email, password);
-    setIsSuccess(true);
+    console.log("Login attempted with:", email, password);
 
-    setTimeout(() => {
-      setIsSuccess(false);
-      navigate('/'); // Redirect ke halaman utama
-    }, 1000);
+    // Validasi email admin
+    if (adminEmails.includes(email)) {
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        navigate("/admin/dashboard"); // Redirect ke halaman admin
+      }, 1000);
+    } else {
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        navigate("/"); // Redirect ke halaman utama
+      }, 1000);
+    }
   };
 
   const handleBack = () => {
-    navigate('/'); // Kembali ke halaman utama
+    navigate("/"); // Kembali ke halaman utama
   };
 
   return (
@@ -48,14 +60,19 @@ const LoginPage = () => {
           {/* Form Login */}
           <div className="w-full lg:w-1/2 p-8 pt-16">
             <div className="max-w-md mx-auto">
-              <h2 className="text-blue-500 text-center text-3xl font-semibold mb-2">Masuk</h2>
+              <h2 className="text-blue-500 text-center text-3xl font-semibold mb-2">
+                Masuk
+              </h2>
               <p className="text-gray-400 text-center font-plusjakartasans mb-8 text-sm">
                 Selamat datang kembali! Masuk untuk melanjutkan.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="email" className="block text-md font-semibold text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-md font-semibold text-gray-700 mb-1"
+                  >
                     Email Anda
                   </label>
                   <input
@@ -70,12 +87,15 @@ const LoginPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-md font-semibold text-gray-700 mb-1">
+                  <label
+                    htmlFor="password"
+                    className="block text-md font-semibold text-gray-700 mb-1"
+                  >
                     Password
                   </label>
                   <div className="relative">
                     <input
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +109,7 @@ const LoginPage = () => {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                     >
-                      {showPassword ? '👁' : '👁‍🗨'}
+                      {showPassword ? "👁" : "👁‍🗨"}
                     </button>
                   </div>
                 </div>
@@ -103,7 +123,7 @@ const LoginPage = () => {
               </form>
 
               <p className="mt-6 text-center font-semibold text-sm">
-                Belum memiliki akun?{' '}
+                Belum memiliki akun?{" "}
                 <a href="/signup" className="text-blue-500 hover:underline">
                   Buat Akun
                 </a>
@@ -119,13 +139,13 @@ const LoginPage = () => {
           <div className="hidden lg:flex w-1/2 bg-blue-500 p-8 text-white items-center justify-center">
             <div className="max-w-lg">
               <h2 className="text-4xl font-semibold text-center mb-8">
-              Jajanan terjangkau
+                Jajanan terjangkau
                 <br />
                 solusi perut lapar
               </h2>
               <div className="relative w-full max-w-md mx-auto h-auto rounded-3xl overflow-hidden shadow-xl">
                 <img
-                  src={loginPreview || '/placeholder.svg'}
+                  src={loginPreview || "/placeholder.svg"}
                   alt="Login Preview"
                   className="w-full h-full object-cover"
                 />

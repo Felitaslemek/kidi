@@ -1,6 +1,6 @@
 import React from "react";
-import logok from "../assets/logok.png";
-import logout from "../assets/logout.png";
+import logok from "../../assets/toko.png"; // Pastikan file ini benar-benar ada
+import logout from "../../assets/logout.png";
 
 const Dashboard = () => {
   return (
@@ -25,7 +25,7 @@ const Dashboard = () => {
       </header>
 
       <main className="w-full max-w-6xl mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* status kedai */}
+        {/* Status Kedai */}
         <div className="bg-blue-100 shadow p-6 rounded-md flex flex-col items-center">
           <img src={logok} alt="Logok" className="h-16 w-16 mb-4" />
           <h2 className="text-lg font-semibold text-blue-800">Kedai Sudah Buka</h2>
@@ -35,7 +35,7 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* testimoni masuk */}
+        {/* Testimoni Masuk */}
         <div className="bg-white shadow p-6 rounded-md flex flex-col items-center">
           <h2 className="text-lg font-semibold text-gray-700">Testimoni Masuk</h2>
           <p className="text-4xl font-bold text-blue-600 mt-2">10</p>
@@ -44,7 +44,7 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* daftar menu */}
+        {/* Daftar Menu */}
         <div className="bg-white shadow p-6 rounded-md flex flex-col items-center">
           <h2 className="text-lg font-semibold text-gray-700">Daftar Menu</h2>
           <p className="text-4xl font-bold text-blue-600 mt-2">4</p>
