@@ -41,7 +41,7 @@ const SignupPage = () => {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="User Name"
+                placeholder="User  Name"
                 className="w-full px-3 md:px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
@@ -52,7 +52,7 @@ const SignupPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Masukan Email"
+                placeholder="Masukan  Email"
                 className="w-full px-3 md:px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
@@ -72,7 +72,7 @@ const SignupPage = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
                 >
-                  {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+                  {showPassword ? <EyeIcon className="h-4 w-4" /> : <EyeOffIcon className="h-4 w-4" />}
                 </button>
               </div>
             </div>
@@ -104,5 +104,5 @@ const SignupPage = () => {
   )
 }
 
-export default SignupPage
+export default SignupPage;
 
