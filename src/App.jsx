@@ -103,7 +103,7 @@ function App() {
 
          {/* Halaman Admin Dashboard */}
          <Route
-          path="admin/dashboard"
+          path="admin/Dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />

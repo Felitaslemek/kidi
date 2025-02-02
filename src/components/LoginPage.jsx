@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { EyeIcon, EyeOffIcon, ArrowLeftIcon } from "lucide-react";
 import buat from "../assets/buat.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -13,16 +14,16 @@ const LoginPage = () => {
     e.preventDefault();
     console.log("Login attempted with:", email, password);
 
-    // Redirect based on user role
+
     if (email === "kedaimanang@gmail.com") {
-      navigate("admin/dashboard"); // Redirect to admin dashboard
+      navigate("admin/Dashboard"); 
     } else {
-      navigate("/"); // Redirect to main page
+      navigate("/"); 
     }
   };
 
   const handleBack = () => {
-    navigate("/"); // Back to main page
+    navigate("/");
   };
 
   return (
@@ -58,7 +59,7 @@ const LoginPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Masukkan Email"
+                placeholder="Masukkan  Email"
                 className="w-full px-3 md:px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>

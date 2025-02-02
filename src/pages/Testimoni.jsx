@@ -101,7 +101,7 @@ function Testimonial() {
 
 	return (
 		<div className="flex flex-col gap-5 md:gap-7">
-			<div className="text-center flex flex-col gap-4">
+			<div className="text-center flex flex-col gap-4 mt-5 md:mt-7">
 				<p className="text-sm font-regular text-color_nuetral_600_light md:text-base">
 					Testimoni
 				</p>

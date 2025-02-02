@@ -95,8 +95,7 @@ const SignupPage = () => {
           <p className="mt-8 md:mt-12 text-center text-xs text-gray-400">© 2024 Kedai Manang. All rights reserved.</p>
         </div>
       </div>
-
-      {/* Right Column - Image */}
+      
       <div className="hidden w-0 md:w-1/2 md:flex md:items-center md:justify-center transition-all duration-300 ease-in-out">
         <img src={buat || "/placeholder.svg"} alt="Buat" className="w-4/5 h-auto object-contain" />
       </div>

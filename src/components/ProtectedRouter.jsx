@@ -1,12 +1,6 @@
-import React, {
-	useState,
-	useEffect,
-} from "react";
+import React, {useState,useEffect,} from "react";
 import { Navigate } from "react-router-dom";
-import {
-	auth,
-	db,
-} from "../firebase/firebaseConfig";
+import {auth,db,} from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
@@ -48,7 +42,7 @@ const ProtectedRoute = ({ role, children }) => {
 	}
 
 	// Redirect jika tidak memiliki role yang sesuai
-	return <Navigate to="/" replace />;
+	return <Navigate to="admin/Dashboard" replace />;
 };
 
 export default ProtectedRoute;
