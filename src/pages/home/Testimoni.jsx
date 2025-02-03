@@ -141,7 +141,7 @@ function Testimonial() {
 
 			{/* Button ke Testimoni Input */}
 			<button
-				// onClick={() => setShowForm(!showForm)}
+				onClick={() => setShowForm(!showForm)}
 				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex">
 				Berikan testimoni
 				<span className="ml-2">
@@ -164,7 +164,7 @@ function Testimonial() {
 				</span>
 			</button>
 
-			{/* {showForm && (
+			{showForm && (
 				<div className="mt-6 p-6 bg-white rounded-lg shadow-md">
 					<form
 						onSubmit={handleSubmit}
@@ -216,7 +216,7 @@ function Testimonial() {
 						</button>
 					</form>
 					</div> 
-			)}*/}
+			)}
 		</div>
 	);
 }
