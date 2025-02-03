@@ -45,7 +45,7 @@ const Navbar = ({ scrollToSection }) => (
 			<img
 				src={profileIcon || "/placeholder.svg"}
 				alt="Profile Icon"
-				className="w-6 h-6 text-gray-100 hover:bg-blue-300 rounded-full cursor-pointer"
+				className="w-6 h-6 cursor-pointer"
 				onClick={() =>
 					(window.location.href = "/signup")
 				}
