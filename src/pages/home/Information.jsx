@@ -30,7 +30,7 @@ const Information = () => {
 					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
 					target="_blank"
 					rel="noopener noreferrer">
-					<button className="bg-color_nuetral_100_light text-color_primary_500_light px-4 py-2 rounded-lg text-sm font-semibold md:text-lg hover:!bg-blue-200 transition-colors flex gap-2">
+					<button className="bg-color_nuetral_100_light text-color_primary_500_light px-4 py-2 rounded-lg text-sm font-semibold md:text-lg hover:!bg-color_primary_100_light 0 transition-colors flex gap-2">
 						Lihat lokasi toko{" "}
 						<span>
 							<svg
