@@ -72,24 +72,24 @@ const HomePage = () => {
 				<Information />
 			</div>
 
-			<div className="mt-6">
+			<div className="mt-6 lg:mt-12">
 				<Hero />
 			</div>
 
-			<div id="menu" className="mt-6">
+			<div id="menu" className="mt-6 lg:mt-12">
 				<ProductShowCase />
 			</div>
 
-			<div id="testimonials">
+			<div id="testimonials" className="mt-6 lg:mt-12">
 				<Testimonial />
 			</div>
 
-			<div className="mt-6">
+			<div className="mt-6 lg:mt-12">
 				<End />
 			</div>
 
-			<div id="contact" className="mt-6">
-				<div className="-mx-6 md:-mx-12">
+			<div id="contact" className="mt-6 lg:mt-12">
+				<div className="-mx-6 md:-mx-12 lg:-mx-20">
 					<Footer />
 				</div>
 			</div>
