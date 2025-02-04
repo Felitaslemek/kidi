@@ -12,6 +12,7 @@ import {
 	where,
 } from "firebase/firestore";
 import mockup from "../../assets/mockup.png";
+import { useNavigate } from "react-router-dom";
 
 // Fungsi untuk mengecek apakah email sudah terdaftar
 const checkIfEmailExists = async (email) => {
@@ -21,9 +22,13 @@ const checkIfEmailExists = async (email) => {
 		where("email", "==", email)
 	);
 	const querySnapshot = await getDocs(q);
-
 	return !querySnapshot.empty; // True jika email sudah ada
 };
+
+// Regex untuk validasi email dan password
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex =
+	/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 const SignupPage = ({ onClose }) => {
 	const [name, setName] = useState("");
@@ -32,11 +37,26 @@ const SignupPage = ({ onClose }) => {
 	const [showPassword, setShowPassword] =
 		useState(false);
 	const [isSuccess, setIsSuccess] =
-		useState(false); // Notifikasi keberhasilan
+		useState(false);
+	const navigate = useNavigate(); // Pindahkan useNavigate ke dalam komponen
+	const handleBack = () => {
+		navigate("/"); // Navigasi ke halaman utama
+	}; // Notifikasi keberhasilan
 
 	// Fungsi untuk submit form signup
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (!emailRegex.test(email)) {
+			alert("Format email tidak valid.");
+			return;
+		}
+		if (!passwordRegex.test(password)) {
+			alert(
+				"Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka."
+			);
+			return;
+		}
+
 		try {
 			// Periksa apakah email sudah digunakan
 			const emailExists =
@@ -68,8 +88,15 @@ const SignupPage = ({ onClose }) => {
 
 			// Tutup form signup setelah sukses
 			setTimeout(() => {
+				setIsOpen(false);
 				setIsSuccess(false);
-				onClose();
+				if (onClose) {
+					onClose();
+				} else {
+					console.warn(
+						"onClose function is not provided!"
+					);
+				}
 			}, 1000);
 		} catch (error) {
 			if (
@@ -89,7 +116,7 @@ const SignupPage = ({ onClose }) => {
 	};
 
 	return (
-		<div className="bg-color_background_light p-6 lg:p-12">
+		<div className="bg-color_nuetral_100_light p-6 lg:p-8 max-h-screen">
 			<div className="">
 				{/* Notifikasi Berhasil */}
 				{isSuccess && (
@@ -102,30 +129,28 @@ const SignupPage = ({ onClose }) => {
 			<div className="flex flex-col lg:flex-row">
 				{/* Tombol Kembali */}
 				<button
-					onClick={onClose}
+					onClick={handleBack}
 					className="absolute top-12 left-12">
-					<span className="">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 40 40"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M15.95 8.63338C16.2667 8.63338 16.5833 8.75005 16.8333 9.00005C17.3167 9.48338 17.3167 10.2834 16.8333 10.7667L7.6 20L16.8333 29.2334C17.3167 29.7167 17.3167 30.5167 16.8333 31C16.35 31.4834 15.55 31.4834 15.0667 31L4.95 20.8834C4.46666 20.4 4.46666 19.6 4.95 19.1167L15.0667 9.00005C15.3167 8.75005 15.6333 8.63338 15.95 8.63338Z"
-								fill="#717171"
-							/>
-							<path
-								d="M6.11669 18.75L34.1667 18.75C34.85 18.75 35.4167 19.3167 35.4167 20C35.4167 20.6833 34.85 21.25 34.1667 21.25L6.11669 21.25C5.43336 21.25 4.86669 20.6833 4.86669 20C4.86669 19.3167 5.43336 18.75 6.11669 18.75Z"
-								fill="#717171"
-							/>
-						</svg>
-					</span>
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 40 40"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M15.95 8.63338C16.2667 8.63338 16.5833 8.75005 16.8333 9.00005C17.3167 9.48338 17.3167 10.2834 16.8333 10.7667L7.6 20L16.8333 29.2334C17.3167 29.7167 17.3167 30.5167 16.8333 31C16.35 31.4834 15.55 31.4834 15.0667 31L4.95 20.8834C4.46666 20.4 4.46666 19.6 4.95 19.1167L15.0667 9.00005C15.3167 8.75005 15.6333 8.63338 15.95 8.63338Z"
+							fill="#717171"
+						/>
+						<path
+							d="M6.11669 18.75L34.1667 18.75C34.85 18.75 35.4167 19.3167 35.4167 20C35.4167 20.6833 34.85 21.25 34.1667 21.25L6.11669 21.25C5.43336 21.25 4.86669 20.6833 4.86669 20C4.86669 19.3167 5.43336 18.75 6.11669 18.75Z"
+							fill="#717171"
+						/>
+					</svg>
 				</button>
 				{/* Form Signup */}
-				<div className="w-full lg:w-1/2 flex flex-col align-items justify-center">
+				<div className="w-full lg:w-4/6 flex flex-col align-items justify-center">
 					<div className="mx-auto">
-						<div className="flex flex-col gap-2">
+						<div className="space-y-2 mb-6">
 							<h2 className="text-color_primary_500_light text-center text-2xl font-semibold">
 								Buat Akun
 							</h2>
@@ -237,7 +262,7 @@ const SignupPage = ({ onClose }) => {
 				</div>
 
 				{/* Gambar Samping */}
-				<div className="hidden lg:flex lg:h-1/2 w-1/2 items-center justify-center">
+				<div className="hidden lg:flex w-1/2 items-center justify-center">
 					<img
 						src={mockup}
 						alt="App Preview"
