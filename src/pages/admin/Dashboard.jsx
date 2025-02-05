@@ -2,8 +2,17 @@ import React from "react";
 import logok from "../../assets/toko.png";
 import logout from "../../assets/logout.png";
 import StoreButton from "../../components/admin/store";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+	const navigate = useNavigate();
+
+	const onLogout = () => {
+		alert("Anda berhasil logout.");
+		navigate("/", { replace: true });
+	};
+
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col items-center p-4">
 			{/* Header */}
@@ -28,7 +37,9 @@ const Dashboard = () => {
 						Menu
 					</a>
 				</nav>
-				<button className="text-gray-600 hover:text-blue-600">
+				<button
+					onClick={onLogout}
+					className="text-gray-600 hover:text-blue-600">
 					<img
 						src={logout}
 						alt="Logout"

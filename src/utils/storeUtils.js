@@ -4,7 +4,7 @@ import { db } from "../firebase/firebaseConfig";
 // Fungsi untuk mendapatkan status toko
 export const getStoreStatus = async () => {
     try {
-        const storeRef = doc(db, "store", "status");
+        const storeRef = doc(db, "store", "EMQVnvYaxnwqnUiPQZsG");
         const storeSnap = await getDoc(storeRef);
 
         if (storeSnap.exists()) {
@@ -24,7 +24,7 @@ export const getStoreStatus = async () => {
 export const toggleStoreStatus = async (currentStatus) => {
     try {
         const newStatus = currentStatus === "open" ? "closed" : "open";
-        const storeRef = doc(db, "store", "status");
+        const storeRef = doc(db, "store", "EMQVnvYaxnwqnUiPQZsG");
         await updateDoc(storeRef, { status: newStatus });
         return newStatus;
     } catch (error) {
