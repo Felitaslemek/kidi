@@ -6,10 +6,17 @@ const db = admin.firestore();
 
 exports.updateStoreStatus = functions.pubsub.schedule("every 1 minutes").onRun(async (context) => {
     const now = new Date();
-    const currentHour = now.getHours();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+
+    let storeStatus = "is_closed";
+    let color = "blue"; // Default warna biru
 
     // Periksa jam dan tentukan status
-    const storeStatus = currentHour >= 17 && currentHour < 22 ? "is_open" : "is_closed";
+    if ((hours === 17 && minutes >= 0) || (hours > 17 && hours < 7) || (hours === 7 && minutes < 30)) {
+        storeStatus = "is_open";
+        color = "red"; // Ubah warna menjadi merah
+    }
 
     try {
         // Perbarui status toko di Firestore
@@ -21,3 +28,4 @@ exports.updateStoreStatus = functions.pubsub.schedule("every 1 minutes").onRun(a
 
     return null;
 });
+

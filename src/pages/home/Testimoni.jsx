@@ -142,7 +142,7 @@ function Testimonial() {
 			{/* Button ke Testimoni Input */}
 			<button
 				onClick={() => setShowForm(!showForm)}
-				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex">
+				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex font-semibold hover:bg-color_primary_300_light transition-colors">
 				Berikan testimoni
 				<span className="ml-2">
 					<svg

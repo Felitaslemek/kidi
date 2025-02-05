@@ -55,8 +55,8 @@ const LoginPage = () => {
 	};
 
 	return (
-		<div className="min-h-screen bg-gray-100">
-			<div className="bg-white w-full max-w-6xl rounded-lg shadow-lg overflow-hidden relative">
+		<div className="bg-color_background_light">
+			<div className="w-full flex flex-col align-items justify-center">
 				{/* Tombol Kembali */}
 				<button
 					onClick={() => navigate(-1)}
