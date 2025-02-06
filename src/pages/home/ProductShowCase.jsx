@@ -101,8 +101,19 @@ function ProductShowcase() {
 					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"
 					target="_blank"
 					rel="noopener noreferrer">
-					<button className="justify-center w-full items-center bg-color_primary_500_light text-color_nuetral_100_light py-3 rounded-lg hover:bg-color_primary_300_light transition-colors font-semibold shadow-md hover:shadow-lg">
-						Lihat lokasi toko{" "}
+					<button
+						onClick={() => {
+							const phoneNumber = "6281325181773"; // Ganti dengan nomor WhatsApp penjual (format internasional tanpa +)
+							const message = encodeURIComponent(
+								"Halo, saya ingin memesan produk Anda."
+							);
+							window.open(
+								`https://wa.me/${phoneNumber}?text=${message}`,
+								"_blank"
+							);
+						}}
+						className="justify-center w-full items-center bg-color_primary_500_light text-color_nuetral_100_light py-3 rounded-lg hover:bg-color_primary_300_light transition-colors font-semibold shadow-md hover:shadow-lg">
+						Pesan Sekarang{" "}
 						<span className="ml-2 items-center">
 							<svg
 								width="21"

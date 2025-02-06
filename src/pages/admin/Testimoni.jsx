@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTestimoniList, deleteTestimoni } from "../../utils/storeUtils"; // Import fungsi
+import {
+	getTestimoniList,
+	deleteTestimoni,
+	addTestimoni,
+} from "../../utils/storeUtils"; // Import fungsi
 import logoutIcon from "../../assets/logout.png";
 
 export default function TestimonialAdmin() {
@@ -30,6 +34,41 @@ export default function TestimonialAdmin() {
 
 		fetchTestimonials();
 	}, []);
+
+	const handlePost = async (id) => {
+		const confirmPost = window.confirm(
+			"Apakah Anda yakin ingin memposting testimoni ini?"
+		);
+		if (confirmPost) {
+			try {
+				// Cari testimoni berdasarkan ID
+				const testimoni = testimonials.find(
+					(item) => item.id === id
+				);
+				if (!testimoni) {
+					console.error(
+						"Testimoni tidak ditemukan!"
+					);
+					return;
+				}
+
+				// Tambahkan testimoni ke koleksi testimoni yang sudah diposting
+				await addTestimoni(
+					testimoni.name,
+					testimoni.email,
+					testimoni.rating,
+					testimoni.pesan
+				);
+
+				alert("Testimoni berhasil diposting!");
+			} catch (error) {
+				console.error(
+					"Gagal memposting testimoni:",
+					error
+				);
+			}
+		}
+	};
 
 	const handleDelete = async (id) => {
 		const confirmDelete = window.confirm(
@@ -116,6 +155,9 @@ export default function TestimonialAdmin() {
 									Pesan
 								</th>
 								<th className="border px-4 py-2">
+									Rating
+								</th>
+								<th className="border px-4 py-2">
 									Aksi
 								</th>
 							</tr>
@@ -135,12 +177,21 @@ export default function TestimonialAdmin() {
 										<td className="border px-4 py-2 text-center">
 											{item.pesan}
 										</td>
+										<td className="border px-4 py-2 text-center">
+											{item.rating}
+										</td>
 										<td
 											onClick={() =>
 												handleDelete(item.id)
 											}
 											className="border px-4 py-2 text-center text-red-500 cursor-pointer">
 											Hapus
+										</td>
+										<td
+											onClick={() =>
+												handlePost(item.id)
+											}>
+											Posting
 										</td>
 									</tr>
 								))

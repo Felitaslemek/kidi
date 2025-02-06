@@ -3,6 +3,7 @@ import logok from "../../assets/toko.png";
 import logout from "../../assets/logout.png";
 import StoreButton from "../../components/admin/store";
 import { useNavigate } from "react-router-dom";
+import { getTestimoniList } from "../../utils/storeUtils";
 
 const Dashboard = () => {
 	const navigate = useNavigate();
