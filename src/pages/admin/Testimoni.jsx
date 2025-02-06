@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTestimoniList } from "../../utils/storeUtils"; // Import fungsi
+import { getTestimoniList, deleteTestimoni } from "../../utils/storeUtils"; // Import fungsi
 import logoutIcon from "../../assets/logout.png";
 
 export default function TestimonialAdmin() {
@@ -30,6 +30,25 @@ export default function TestimonialAdmin() {
 
 		fetchTestimonials();
 	}, []);
+
+	const handleDelete = async (id) => {
+		const confirmDelete = window.confirm(
+			"Apakah Anda yakin ingin menghapus testimoni ini?"
+		);
+		if (confirmDelete) {
+			try {
+				await deleteTestimoni(id);
+				setTestimonials((prev) =>
+					prev.filter((item) => item.id !== id)
+				); // Perbarui state
+			} catch (error) {
+				console.error(
+					"Gagal menghapus testimoni:",
+					error
+				);
+			}
+		}
+	};
 
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col items-center p-4">
@@ -114,9 +133,13 @@ export default function TestimonialAdmin() {
 											{item.email}
 										</td>
 										<td className="border px-4 py-2 text-center">
-											{item.msg}
+											{item.pesan}
 										</td>
-										<td className="border px-4 py-2 text-center text-red-500 cursor-pointer">
+										<td
+											onClick={() =>
+												handleDelete(item.id)
+											}
+											className="border px-4 py-2 text-center text-red-500 cursor-pointer">
 											Hapus
 										</td>
 									</tr>

@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { doc, getDoc, updateDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
 // Fungsi untuk mendapatkan status toko
@@ -44,6 +44,18 @@ export const getTestimoniList = async () => {
         return data;
     } catch (error) {
         console.error("Error fetching testimonies:", error);
+        throw error;
+    }
+};
+
+// Fungsi untuk menghapus testimoni
+export const deleteTestimoni = async (id) => {
+    try {
+        const testimoniRef = doc(db, "testimoni", id);
+        await deleteDoc(testimoniRef);
+        console.log(`Testimoni dengan ID ${id} telah dihapus.`);
+    } catch (error) {
+        console.error("Error deleting testimony:", error);
         throw error;
     }
 };

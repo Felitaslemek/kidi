@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import logok from "../../assets/toko.png";
 import logout from "../../assets/logout.png";
 import StoreButton from "../../components/admin/store";
@@ -6,11 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 	const navigate = useNavigate();
+	const [testimonials, setTestimonials] =
+		useState([]); // State untuk menyimpan testimoni
 
 	const onLogout = () => {
 		alert("Anda berhasil logout.");
 		navigate("/", { replace: true });
 	};
+
+	useEffect(() => {
+		const fetchTestimonials = async () => {
+			try {
+				const data = await getTestimoniList();
+				setTestimonials(data);
+			} catch (error) {
+				console.error(
+					"Gagal mengambil testimoni:",
+					error
+				);
+			}
+		};
+
+		fetchTestimonials();
+	}, []);
 
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col items-center p-4">
@@ -76,7 +94,7 @@ const Dashboard = () => {
 						Total Testimoni
 					</h2>
 					<p className="text-4xl font-bold text-blue-600 mt-2">
-						10
+						{testimonials.length}
 					</p>
 					<button
 						onClick={() =>
