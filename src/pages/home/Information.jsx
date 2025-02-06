@@ -9,18 +9,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
-// 	return (
-// 		<div className="flex flex-col items-center mt-10">
-//       <p className="text-lg font-semibold">Status Toko:</p>
-//       <button
-//         className={`text-white font-bold py-2 px-6 mt-2 rounded-md ${btnColor}`}
-// 		>
-//
-//       </button>
-//     </div>
-//   );
-// };
-
 const Information = () => {
 	const [storeStatus, setStoreStatus] =
 		useState("loading"); // Default loading

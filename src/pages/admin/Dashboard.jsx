@@ -3,7 +3,6 @@ import logok from "../../assets/toko.png";
 import logout from "../../assets/logout.png";
 import StoreButton from "../../components/admin/store";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Dashboard = () => {
 	const navigate = useNavigate();
@@ -21,21 +20,27 @@ const Dashboard = () => {
 					Kedai Manang
 				</h1>
 				<nav className="flex flex-wrap gap-4 text-gray-600">
-					<a
-						href="#"
+					<button
+						onClick={() =>
+							navigate("/admin/dashboard")
+						}
 						className="hover:text-blue-600">
 						Dashboard
-					</a>
-					<a
-						href="#"
+					</button>
+					<button
+						onClick={() =>
+							navigate("/admin/testimoni")
+						}
 						className="hover:text-blue-600">
 						Testimoni
-					</a>
-					<a
-						href="#"
+					</button>
+					<button
+						onClick={() =>
+							navigate("/admin/menu")
+						}
 						className="hover:text-blue-600">
 						Menu
-					</a>
+					</button>
 				</nav>
 				<button
 					onClick={onLogout}
@@ -73,7 +78,11 @@ const Dashboard = () => {
 					<p className="text-4xl font-bold text-blue-600 mt-2">
 						10
 					</p>
-					<button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+					<button
+						onClick={() =>
+							navigate("/admin/testimoni")
+						}
+						className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
 						Review
 					</button>
 				</div>
@@ -86,7 +95,11 @@ const Dashboard = () => {
 					<p className="text-4xl font-bold text-blue-600 mt-2">
 						4
 					</p>
-					<button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+					<button
+						onClick={() =>
+							navigate("/admin/menu")
+						}
+						className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
 						Edit
 					</button>
 				</div>

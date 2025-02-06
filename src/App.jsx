@@ -15,6 +15,8 @@ import Information from "./pages/home/Information";
 import Hero from "./pages/home/Hero";
 import Dashboard from "./pages/admin/Dashboard";
 import ProtectedRoute from "./pages/auth/ProtectedRouter";
+import TestimoniAdmin from "./pages/admin/Testimoni";
+import MenuAdmin from "./pages/admin/Menu";
 
 const Navbar = ({ scrollToSection }) => (
 	<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-14 md:right-14 lg:left-20 lg:right-20">
@@ -80,7 +82,9 @@ const HomePage = () => {
 				<ProductShowCase />
 			</div>
 
-			<div id="testimonials" className="mt-6 lg:mt-12">
+			<div
+				id="testimonials"
+				className="mt-6 lg:mt-12">
 				<Testimonial />
 			</div>
 
@@ -114,6 +118,22 @@ function App() {
 				<Route
 					path="/signup"
 					element={<SignupPage />}
+				/>
+				<Route
+					path="/admin/testimoni"
+					element={
+						<ProtectedRoute role="admin">
+							<TestimoniAdmin />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/admin/menu"
+					element={
+						<ProtectedRoute role="admin">
+							<MenuAdmin />
+						</ProtectedRoute>
+					}
 				/>
 				<Route
 					path="/admin/dashboard"
