@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
 // Fungsi untuk mendapatkan status toko
@@ -29,6 +29,21 @@ export const toggleStoreStatus = async (currentStatus) => {
         return newStatus;
     } catch (error) {
         console.error("Error toggling store status:", error);
+        throw error;
+    }
+};
+
+// Fungsi untuk mendapatkan list testimoni
+export const getTestimoniList = async () => {
+    try {
+        const querySnapshot = await getDocs(collection(db, "testimoni"));
+        const data = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        return data;
+    } catch (error) {
+        console.error("Error fetching testimonies:", error);
         throw error;
     }
 };

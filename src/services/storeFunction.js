@@ -13,9 +13,9 @@ exports.updateStoreStatus = functions.pubsub.schedule("every 1 minutes").onRun(a
     let color = "blue"; // Default warna biru
 
     // Periksa jam dan tentukan status
-    if ((hours === 17 && minutes >= 0) || (hours > 17 && hours < 7) || (hours === 23 && minutes < 30)) {
+    if (hours >= 17 && hours < 22) { // Buka dari jam 17:00 sampai 21:59
         storeStatus = "is_open";
-        color = "red"; // Ubah warna menjadi merah
+        color = "red";
     }
 
     try {

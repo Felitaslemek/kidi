@@ -1,23 +1,31 @@
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-admin.initializeApp();
+import { onSchedule } from "firebase-functions/v2/scheduler";
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
-const db = admin.firestore();
+// Inisialisasi Firebase
+initializeApp();
+const db = getFirestore();
 
-exports.updateStoreStatus = functions.pubsub.schedule("every 1 minutes").onRun(async () => {
-    const now = new Date();
-    const currentHour = now.getHours();
+// Fungsi update status toko setiap 1 menit
+export const updateStoreStatus = onSchedule(
+    {
+        schedule: "every 1 minutes",
+        timeZone: "Asia/Jakarta",
+    },
+    async () => {
+        const now = new Date();
+        const hours = now.getHours();
 
-    // Tentukan status toko berdasarkan jam
-    const storeStatus = currentHour >= 17 && currentHour < 22 ? "open" : "closed";
+        let storeStatus = "closed";
+        if (hours >= 17 && hours < 22) {
+            storeStatus = "open";
+        }
 
-    try {
-        // Perbarui status toko di Firestore
-        await db.collection("store").doc("status").set({ status: storeStatus });
-        console.log(`Store status updated to ${storeStatus}`);
-    } catch (error) {
-        console.error("Error updating store status:", error);
+        try {
+            await db.collection("store").doc("status").set({ status: storeStatus });
+            console.log(`✅ Store status updated to ${storeStatus}`);
+        } catch (error) {
+            console.error("❌ Error updating store status:", error);
+        }
     }
-
-    return null;
-});
+);

@@ -24,7 +24,7 @@ const Dashboard = () => {
 						onClick={() =>
 							navigate("/admin/dashboard")
 						}
-						className="hover:text-blue-600">
+						className="hover:text-blue-600 text-color_primary_500_light">
 						Dashboard
 					</button>
 					<button
@@ -73,7 +73,7 @@ const Dashboard = () => {
 				{/* testimoni masuk */}
 				<div className="bg-white shadow p-6 rounded-md flex flex-col items-center">
 					<h2 className="text-lg font-semibold text-gray-700">
-						Testimoni Masuk
+						Total Testimoni
 					</h2>
 					<p className="text-4xl font-bold text-blue-600 mt-2">
 						10
