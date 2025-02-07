@@ -4,6 +4,7 @@ import {
 	Routes,
 	Route,
 } from "react-router-dom";
+import { motion } from "framer-motion";
 import profileIcon from "./assets/profile.png";
 import ProductShowCase from "./pages/home/ProductShowCase";
 import Testimonial from "./pages/home/Testimoni";
@@ -17,6 +18,15 @@ import Dashboard from "./pages/admin/Dashboard";
 import ProtectedRoute from "./pages/auth/ProtectedRouter";
 import TestimoniAdmin from "./pages/admin/Testimoni";
 import MenuAdmin from "./pages/admin/Menu";
+
+const fadeInUp = {
+	hidden: { opacity: 0, y: 50 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.8 },
+	},
+};
 
 const Navbar = ({ scrollToSection }) => (
 	<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-14 md:right-14 lg:left-20 lg:right-20">
@@ -70,32 +80,52 @@ const HomePage = () => {
 		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-14 lg:px-20">
 			<Navbar scrollToSection={scrollToSection} />
 
-			<div id="location">
+			<motion.div
+				id="location"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<Information />
-			</div>
+			</motion.div>
 
-			<div className="mt-6 lg:mt-12">
+			<motion.div
+				className="mt-6 lg:mt-12"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<Hero />
-			</div>
+			</motion.div>
 
-			<div id="menu" className="mt-6 lg:mt-12">
+			<motion.div
+				id="menu"
+				className="mt-6 lg:mt-12"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<ProductShowCase />
-			</div>
+			</motion.div>
+
+			<motion.div
+				id="testimonials"
+				className="mt-6 lg:mt-12"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
+				<Testimonial />
+			</motion.div>
+
+			<motion.div
+				className="mt-6 lg:mt-12"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
+				<End />
+			</motion.div>
 
 			<div
-				id="testimonials"
-				className="mt-6 lg:mt-12">
-				<Testimonial />
-			</div>
-
-			<div className="mt-6 lg:mt-12">
-				<End />
-			</div>
-
-			<div id="contact" className="mt-6 lg:mt-12">
-				<div className="-mx-6 md:-mx-12 lg:-mx-20">
-					<Footer />
-				</div>
+				id="contact"
+				className="mt-6 lg:mt-12 -mx-6 md:-mx-12 lg:-mx-20">
+				<Footer />
 			</div>
 		</div>
 	);

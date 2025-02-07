@@ -126,7 +126,7 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-hidden w-full">
+			<div className="overflow-hidden w-full grid-rows-2">
 				<motion.div
 					className="flex gap-5"
 					style={{ minWidth: "max-content" }}
@@ -145,7 +145,7 @@ function Testimonial() {
 						.map((testimonial, index) => (
 							<div
 								key={index}
-								className="bg-gray-100 p-6 rounded-lg w-80 flex-shrink-0">
+								className="bg-color_nuetral_100_light p-6 rounded-lg w-80 flex-shrink-0">
 								<h3 className="font-semibold mb-2">
 									{testimonial.name}
 								</h3>

@@ -42,26 +42,28 @@ function ProductShowcase() {
 				</p>
 			</div>
 
-			{/* Gambar Produk */}
-			{menuItems.map((item) => (
-				<div
-					key={item.id}
-					className="relative rounded-2xl overflow-hidden bg-color_nuetral_100_light grid-cols-2">
-					<img
-						src={item.image}
-						alt={item.name}
-						className="w-full h-full object-cover rounded-t-lg"
-					/>
-					<div className="absolute bg-color_primary_500_light bottom-0 left-0 right-0 p-3 text-color_nuetral_100_light rounded-b-2xl flex justify-between	">
-						<span className="font-semibold text-xl">
-							{item.name}
-						</span>
-						<span className="font-regular text-base">
-							{item.price}
-						</span>
+			<div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-7">
+				{/* Gambar Produk */}
+				{menuItems.map((item) => (
+					<div
+						key={item.id}
+						className="relative rounded-2xl overflow-hidden bg-color_nuetral_100_light grid-cols-2">
+						<img
+							src={item.image}
+							alt={item.name}
+							className="w-full h-full object-cover rounded-t-lg"
+						/>
+						<div className="absolute bg-color_primary_500_light bottom-0 left-0 right-0 p-3 text-color_nuetral_100_light rounded-b-2xl flex justify-between	">
+							<span className="font-semibold text-xl">
+								{item.name}
+							</span>
+							<span className="font-regular text-base">
+								{item.price}
+							</span>
+						</div>
 					</div>
-				</div>
-			))}
+				))}
+			</div>
 
 			<div>
 				<a
