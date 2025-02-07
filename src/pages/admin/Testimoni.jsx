@@ -4,21 +4,19 @@ import {
 	getTestimoniList,
 	deleteTestimoni,
 	addTestimoni,
-} from "../../utils/storeUtils"; // Import fungsi
+} from "../../utils/storeUtils";
 import logoutIcon from "../../assets/logout.png";
 
 export default function TestimonialAdmin() {
 	const navigate = useNavigate();
 	const [testimonials, setTestimonials] =
-		useState([]); // State untuk menyimpan testimoni
+		useState([]);
 
-	// Fungsi Logout
 	const onLogout = () => {
 		alert("Anda berhasil logout.");
 		navigate("/", { replace: true });
 	};
 
-	// Ambil data testimoni dari Firestore saat komponen pertama kali di-mount
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
@@ -36,30 +34,22 @@ export default function TestimonialAdmin() {
 	}, []);
 
 	const handlePost = async (id) => {
-		const confirmPost = window.confirm(
-			"Apakah Anda yakin ingin memposting testimoni ini?"
-		);
-		if (confirmPost) {
+		if (
+			window.confirm(
+				"Apakah Anda yakin ingin memposting testimoni ini?"
+			)
+		) {
 			try {
-				// Cari testimoni berdasarkan ID
 				const testimoni = testimonials.find(
 					(item) => item.id === id
 				);
-				if (!testimoni) {
-					console.error(
-						"Testimoni tidak ditemukan!"
-					);
-					return;
-				}
-
-				// Tambahkan testimoni ke koleksi testimoni yang sudah diposting
+				if (!testimoni) return;
 				await addTestimoni(
 					testimoni.name,
 					testimoni.email,
 					testimoni.rating,
 					testimoni.pesan
 				);
-
 				alert("Testimoni berhasil diposting!");
 			} catch (error) {
 				console.error(
@@ -71,15 +61,16 @@ export default function TestimonialAdmin() {
 	};
 
 	const handleDelete = async (id) => {
-		const confirmDelete = window.confirm(
-			"Apakah Anda yakin ingin menghapus testimoni ini?"
-		);
-		if (confirmDelete) {
+		if (
+			window.confirm(
+				"Apakah Anda yakin ingin menghapus testimoni ini?"
+			)
+		) {
 			try {
 				await deleteTestimoni(id);
 				setTestimonials((prev) =>
 					prev.filter((item) => item.id !== id)
-				); // Perbarui state
+				);
 			} catch (error) {
 				console.error(
 					"Gagal menghapus testimoni:",
@@ -128,7 +119,7 @@ export default function TestimonialAdmin() {
 				</button>
 			</header>
 
-			<main className="w-full max-w-6xl mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_2fr] gap-6">
+			<main className="w-full max-w-6xl mt-6 grid grid-cols-1 gap-6">
 				<div className="bg-white shadow rounded-lg p-6 text-center">
 					<h2 className="text-lg font-semibold text-gray-700 mb-4">
 						Testimoni Masuk
@@ -141,7 +132,7 @@ export default function TestimonialAdmin() {
 					</button>
 				</div>
 
-				<div>
+				<div className="overflow-x-auto bg-white shadow rounded-lg p-4">
 					<table className="min-w-full border border-gray-300">
 						<thead>
 							<tr className="bg-gray-200">
@@ -171,7 +162,7 @@ export default function TestimonialAdmin() {
 										<td className="border px-4 py-2 text-center">
 											{item.name}
 										</td>
-										<td className="border px-4 py-2">
+										<td className="border px-4 py-2 text-center">
 											{item.email}
 										</td>
 										<td className="border px-4 py-2 text-center">
@@ -180,25 +171,28 @@ export default function TestimonialAdmin() {
 										<td className="border px-4 py-2 text-center">
 											{item.rating}
 										</td>
-										<td
-											onClick={() =>
-												handleDelete(item.id)
-											}
-											className="border px-4 py-2 text-center text-red-500 cursor-pointer">
-											Hapus
-										</td>
-										<td
-											onClick={() =>
-												handlePost(item.id)
-											}>
-											Posting
+										<td className="border px-4 py-2 text-center flex flex-col md:flex-row gap-2 justify-center">
+											<button
+												onClick={() =>
+													handlePost(item.id)
+												}
+												className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600">
+												Posting
+											</button>
+											<button
+												onClick={() =>
+													handleDelete(item.id)
+												}
+												className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">
+												Hapus
+											</button>
 										</td>
 									</tr>
 								))
 							) : (
 								<tr>
 									<td
-										colSpan="4"
+										colSpan="5"
 										className="text-center text-gray-500 py-4">
 										Belum ada testimoni
 									</td>

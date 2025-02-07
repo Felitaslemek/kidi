@@ -3,9 +3,27 @@ import logok from "../../assets/toko.png";
 import logout from "../../assets/logout.png";
 import StoreButton from "../../components/admin/store";
 import { useNavigate } from "react-router-dom";
-import { getTestimoniList } from "../../utils/storeUtils";
+import { getTestimoniList, getMenuList } from "../../utils/storeUtils";
 
 const Dashboard = () => {
+
+	const [menuList, setMenuList] = useState([]);
+
+	useEffect(() => {
+		const fetchMenu = async () => {
+			try {
+				const menus = await getMenuList();
+				setMenuList(menus);
+			} catch (error) {
+				console.log(
+					"Gagal mengambil menu:",
+					error
+				);
+			}
+		};
+		fetchMenu();
+	}, []);
+
 	const navigate = useNavigate();
 	const [testimonials, setTestimonials] =
 		useState([]); // State untuk menyimpan testimoni
@@ -112,7 +130,7 @@ const Dashboard = () => {
 						Daftar Menu
 					</h2>
 					<p className="text-4xl font-bold text-blue-600 mt-2">
-						4
+						{menuList.length}
 					</p>
 					<button
 						onClick={() =>

@@ -1,5 +1,71 @@
-import { collection, addDoc, query, orderBy, limit, getDocs, deleteDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { collection, addDoc, getDoc, doc, query, orderBy, limit, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
+
+// Fungsi untuk memeriksa status login pengguna
+export const isUserLoggedIn = () => {
+    return localStorage.getItem("user") !== null;
+};
+
+// Fungsi untuk menyimpan data pengguna ke localStorage
+export const saveUserToLocalStorage = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+};
+
+// Fungsi untuk mendapatkan data pengguna dari localStorage
+export const getUserFromLocalStorage = () => {
+    const user = localStorage.getItem("user");
+    return user ? JSON.parse(user) : null;
+};
+
+// Fungsi untuk menghapus data pengguna dari localStorage
+export const logoutUser = () => {
+    localStorage.removeItem("user");
+};
+
+// Fungsi untuk mendapatkan data pengguna dari Firestore berdasarkan UID
+export const getUserDataFromFirestore = async (uid) => {
+    try {
+        const userDoc = await getDoc(doc(db, "users", uid));
+        if (userDoc.exists()) {
+            return userDoc.data();
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        return null;
+    }
+};
+
+// Fungsi untuk menambahkan testimoni jika pengguna sudah login
+export const addTestimonial = async (message, rating) => {
+    const user = getUserFromLocalStorage();
+    if (!user) {
+        alert("Anda harus login terlebih dahulu untuk memberikan testimoni.");
+        return;
+    }
+
+    try {
+        const userData = await getUserDataFromFirestore(user.uid);
+        if (!userData) {
+            alert("Data pengguna tidak ditemukan.");
+            return;
+        }
+
+        await addDoc(collection(db, "testimonials"), {
+            name: userData.name,
+            email: userData.email,
+            message,
+            rating,
+            createdAt: new Date()
+        });
+        alert("Testimoni berhasil ditambahkan!");
+    } catch (error) {
+        console.error("Error adding testimonial:", error);
+        alert("Gagal menambahkan testimoni.");
+    }
+};
+
 
 // Fungsi untuk mendapatkan status toko
 export const getStoreStatus = async () => {
@@ -127,4 +193,67 @@ export const addTestimoniWithLimit = async (nama, email, rating, pesan) => {
         throw error;
     }
 };
+
+// Fungsi untuk menambahkan menu baru
+export const addMenu = async (name, price, imageBase64) => {
+    try {
+        const docRef = await addDoc(collection(db, "product"), {
+            name,
+            price,
+            image: imageBase64, // Simpan sebagai string base64
+        });
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding menu:", error);
+        throw error;
+    }
+};
+
+//Edit Menu
+export const updateMenu = async (id, name, price, imageBase64) => {
+    try {
+        const menuRef = doc(db, "product", id);
+        await updateDoc(menuRef, {
+            name,
+            price,
+            image: imageBase64,
+        });
+        console.log(`Menu dengan ID ${id} telah diperbarui.`);
+    } catch (error) {
+        console.error("Error updating menu:", error);
+        throw error;
+    }
+};
+
+// Hapus menu
+export const deleteMenu = async (id) => {
+    try {
+        const menuRef = doc(db, "product", id);
+        await deleteDoc(menuRef);
+        console.log(`Menu dengan ID ${id} telah dihapus.`);
+    } catch (error) {
+        console.error("Error deleting menu:", error);
+        throw error;
+    }
+};
+
+//Mengambil Menu
+export const getMenuList = async () => {
+    try {
+        const menuRef = collection(db, "product");
+        const menuQuery = query(menuRef);
+        const querySnapshot = await getDocs(menuQuery);
+
+        const data = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+
+        return data;
+    } catch (error) {
+        console.error("Error fetching menus:", error);
+        throw error;
+    }
+};
+
 

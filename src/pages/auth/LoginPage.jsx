@@ -3,6 +3,7 @@ import loginPreview from "../../assets/login.png";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth"; // Import fungsi login Firebase
 import { useNavigate } from "react-router-dom";
+import { saveUserToLocalStorage } from "../../utils/storeUtils"; // Import fungsi untuk menyimpan user ke Local Storage
 
 const LoginPage = () => {
 	const [email, setEmail] = useState("");

@@ -2,6 +2,7 @@ import React, {
 	useState,
 	useEffect,
 } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import { Star } from "lucide-react";
 import {
 	getTestimoniList,
@@ -59,20 +60,15 @@ function Testimonial() {
 			newTestimonial.rating > 0
 		) {
 			try {
-				// Tambahkan testimoni baru ke Firebase
 				await addTestimoniWithLimit(
 					newTestimonial.name,
 					"",
 					newTestimonial.rating,
 					newTestimonial.text
 				);
-
-				// Ambil daftar testimoni terbaru setelah menambah
 				const updatedTestimonials =
 					await getTestimoniList();
 				setTestimonials(updatedTestimonials);
-
-				// Reset form
 				setNewTestimonial({
 					name: "",
 					text: "",
@@ -130,26 +126,38 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-auto scrollbar-hide">
-				<div
+			<div className="overflow-hidden w-full">
+				<motion.div
 					className="flex gap-5"
-					style={{ minWidth: "max-content" }}>
-					{testimonials.map((testimonial) => (
-						<div
-							key={testimonial.id}
-							className="bg-gray-100 p-6 rounded-lg w-80">
-							<h3 className="font-semibold mb-2">
-								{testimonial.name}
-							</h3>
-							<p className="text-gray-600 mb-4">
-								{testimonial.pesan}
-							</p>
-							<StarRating
-								rating={testimonial.rating}
-							/>
-						</div>
-					))}
-				</div>
+					style={{ minWidth: "max-content" }}
+					animate={{ x: ["0%", "-100%"] }}
+					transition={{
+						repeat: Infinity,
+						duration: 100,
+						ease: "linear",
+					}}
+					whileHover={{
+						animationPlayState: "paused",
+					}} // Pause animation saat hover
+				>
+					{testimonials
+						.concat(testimonials)
+						.map((testimonial, index) => (
+							<div
+								key={index}
+								className="bg-gray-100 p-6 rounded-lg w-80 flex-shrink-0">
+								<h3 className="font-semibold mb-2">
+									{testimonial.name}
+								</h3>
+								<p className="text-gray-600 mb-4">
+									{testimonial.pesan}
+								</p>
+								<StarRating
+									rating={testimonial.rating}
+								/>
+							</div>
+						))}
+				</motion.div>
 			</div>
 
 			<button
