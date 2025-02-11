@@ -172,9 +172,8 @@ export default function MenuAdmin() {
 										className="w-16 h-16 object-cover rounded"
 									/>
 									<p>{menu.name}</p>
-									<p>
-										{formatCurrency(menu.price)}
-									</p>
+									<p>{formatCurrency(menu.price ?? "0")}</p>
+
 								</div>
 								<button
 									onClick={() =>

@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMenuList } from "../../utils/storeUtils";
-import chuross from "../../assets/chuross.jpg";
-import otak from "../../assets/otak.jpg";
-import corndog from "../../assets/corndog.jpg";
-import citul from "../../assets/citul.jpg";
+import { formatCurrency } from "../../utils/storeUtils";
 
 function ProductShowcase() {
 	const [hoveredItem, setHoveredItem] =
@@ -42,7 +39,7 @@ function ProductShowcase() {
 				</p>
 			</div>
 
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-7">
+			<div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-7">
 				{/* Gambar Produk */}
 				{menuItems.map((item) => (
 					<div
@@ -58,7 +55,7 @@ function ProductShowcase() {
 								{item.name}
 							</span>
 							<span className="font-regular text-base">
-								{item.price}
+								{formatCurrency(item.price ?? "0")}
 							</span>
 						</div>
 					</div>

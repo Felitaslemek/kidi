@@ -3,9 +3,12 @@ import { db } from "../firebase/firebaseConfig";
 
 // Format harga menjadi mata uang Rupiah
 export const formatCurrency = (value) => {
+    if (typeof value !== "string") {
+        value = String(value); // Ubah ke string jika bukan string
+    }
     const numberString = value.replace(/[^0-9]/g, ""); // Hanya angka
     const number = Number(numberString) || 0;
-    return "Rp " + number.toLocaleString("id-ID"); // Menambahkan "Rp" di depan
+    return "Rp " + number.toLocaleString("id-ID"); // Format ke Rupiah
 };
 
 // Fungsi untuk memeriksa status login pengguna
