@@ -1,6 +1,13 @@
 import { collection, addDoc, getDoc, doc, query, orderBy, limit, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
+// Format harga menjadi mata uang Rupiah
+export const formatCurrency = (value) => {
+    const numberString = value.replace(/[^0-9]/g, ""); // Hanya angka
+    const number = Number(numberString) || 0;
+    return "Rp " + number.toLocaleString("id-ID"); // Menambahkan "Rp" di depan
+};
+
 // Fungsi untuk memeriksa status login pengguna
 export const isUserLoggedIn = () => {
     return localStorage.getItem("user") !== null;

@@ -7,6 +7,7 @@ import {
 } from "../../utils/storeUtils";
 import logout from "../../assets/logout.png";
 import { useNavigate } from "react-router-dom";
+import { formatCurrency } from "../../utils/storeUtils";
 
 export default function MenuAdmin() {
 	const navigate = useNavigate();
@@ -105,13 +106,13 @@ export default function MenuAdmin() {
 				<h1 className="text-xl font-semibold text-blue-600">
 					Kedai Manang
 				</h1>
-				<nav className="flex gap-4 text-gray-600">
+				<nav className="flex gap-4 text-color_nuetral_400_light">
 					<a
 						href="#"
 						onClick={() =>
 							navigate("/admin/dashboard")
 						}
-						className="hover:text-blue-600">
+						className="hover:text-color_primary_500_light">
 						Dashboard
 					</a>
 					<a
@@ -119,12 +120,12 @@ export default function MenuAdmin() {
 						onClick={() =>
 							navigate("/admin/testimoni")
 						}
-						className="hover:text-blue-600">
+						className="hover:text-color_primary_500_light">
 						Testimoni
 					</a>
 					<a
 						href="#"
-						className="hover:text-blue-600 text-blue-600">
+						className="hover:text-color_primary_500_light text-color_primary_500_light">
 						Menu
 					</a>
 				</nav>
@@ -171,7 +172,9 @@ export default function MenuAdmin() {
 										className="w-16 h-16 object-cover rounded"
 									/>
 									<p>{menu.name}</p>
-									<p>{menu.price}</p>
+									<p>
+										{formatCurrency(menu.price)}
+									</p>
 								</div>
 								<button
 									onClick={() =>

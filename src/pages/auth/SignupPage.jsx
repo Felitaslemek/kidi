@@ -13,7 +13,7 @@ import {
 } from "firebase/firestore";
 import mockup from "../../assets/mockup.png";
 import { useNavigate } from "react-router-dom";
-import '../../index.css'
+import "../../index.css";
 
 // Fungsi untuk mengecek apakah email sudah terdaftar
 const checkIfEmailExists = async (email) => {
@@ -90,7 +90,7 @@ const SignupPage = ({ onClose }) => {
 
 			// Tutup form signup setelah sukses
 			setTimeout(() => {
-				setIsOpen(false);
+				setIsOpen(true);
 				setIsSuccess(false);
 				if (onClose) {
 					onClose();
@@ -118,7 +118,7 @@ const SignupPage = ({ onClose }) => {
 	};
 
 	return (
-		<div className="bg-color_nuetral_100_light p-6 lg:p-8 max-h-screen">
+		<div className="bg-color_nuetral_100_light px-6 lg:p-8 min-h-screen mt-20 lg:mt-0">
 			<div className="">
 				{/* Notifikasi Berhasil */}
 				{isSuccess && (
@@ -151,7 +151,7 @@ const SignupPage = ({ onClose }) => {
 				</button>
 				{/* Form Signup */}
 				<div className="w-full lg:w-4/6 flex flex-col align-items justify-center">
-					<div className="px-24">
+					<div className="lg:px-24">
 						<div className="space-y-3 mb-6">
 							<h2 className="text-color_primary_500_light text-center text-2xl font-semibold">
 								Buat Akun
@@ -228,12 +228,6 @@ const SignupPage = ({ onClose }) => {
 										className="w-full text-regular px-4 py-3 border border-color_nuetral_200_light rounded-lg focus:outline-none focus:ring-2 focus:ring-color_primary_500_light"
 										autoComplete="new-password"
 										spellCheck="false"
-										style={{
-											WebkitTextSecurity:
-												showPassword
-													? "none"
-													: "disc",
-										}}
 									/>
 									<button
 										type="button"
