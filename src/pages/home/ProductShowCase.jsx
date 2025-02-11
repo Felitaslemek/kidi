@@ -39,7 +39,7 @@ function ProductShowcase() {
 				</p>
 			</div>
 
-			<div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-4">
+			<div className="grid gap-4 grid-cols-2 lg:grid-cols-4 md:gap-4">
 				{/* Gambar Produk */}
 				{menuItems.map((item) => (
 					<div
