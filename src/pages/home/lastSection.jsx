@@ -24,7 +24,7 @@ const End = () => {
 					target="_blank"
 					rel="noopener noreferrer"
 					className="block w-full">
-					<button className="w-full bg-color_nuetral_100_light text-color_primary_500_light px-6 py-3 font-semibold rounded-lg text-sm">
+					<button className="w-full bg-color_nuetral_100_light text-color_primary_500_light px-6 py-3 font-semibold rounded-lg text-sm hover:bg-color_primary_100_light">
 						Gas Mampir
 						<span className="ml-2 items-center">
 							<svg

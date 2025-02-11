@@ -1,9 +1,11 @@
 import React from "react";
 import {
+	HashRouter,
 	BrowserRouter as Router,
 	Routes,
 	Route,
 } from "react-router-dom";
+import { motion } from "framer-motion";
 import profileIcon from "./assets/profile.png";
 import ProductShowCase from "./pages/home/ProductShowCase";
 import Testimonial from "./pages/home/Testimoni";
@@ -15,6 +17,17 @@ import Information from "./pages/home/Information";
 import Hero from "./pages/home/Hero";
 import Dashboard from "./pages/admin/Dashboard";
 import ProtectedRoute from "./pages/auth/ProtectedRouter";
+import TestimoniAdmin from "./pages/admin/Testimoni";
+import MenuAdmin from "./pages/admin/Menu";
+
+const fadeInUp = {
+	hidden: { opacity: 0, y: 50 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.8 },
+	},
+};
 
 const Navbar = ({ scrollToSection }) => (
 	<nav className="bg-color_nuetral_100_light z-50 flex items-center justify-between px-6 py-3 rounded-2xl fixed left-6 right-6 mt-6 md:left-14 md:right-14 lg:left-20 lg:right-20">
@@ -45,7 +58,7 @@ const Navbar = ({ scrollToSection }) => (
 			<img
 				src={profileIcon || "/placeholder.svg"}
 				alt="Profile Icon"
-				className="w-6 h-6 text-gray-100 hover:bg-blue-300 rounded-full cursor-pointer"
+				className="w-6 h-6 cursor-pointer"
 				onClick={() =>
 					(window.location.href = "/signup")
 				}
@@ -68,30 +81,52 @@ const HomePage = () => {
 		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-14 lg:px-20">
 			<Navbar scrollToSection={scrollToSection} />
 
-			<div id="location">
+			<motion.div
+				id="location"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<Information />
-			</div>
+			</motion.div>
 
-			<div className="mt-6">
+			<motion.div
+				className="mt-6 lg:mt-16"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<Hero />
-			</div>
+			</motion.div>
 
-			<div id="menu" className="mt-6">
+			<motion.div
+				id="menu"
+				className="mt-6 lg:mt-16"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<ProductShowCase />
-			</div>
+			</motion.div>
 
-			<div id="testimonials">
+			<motion.div
+				id="testimonials"
+				className="mt-6 lg:mt-16"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<Testimonial />
-			</div>
+			</motion.div>
 
-			<div className="mt-6">
+			<motion.div
+				className="mt-6 lg:mt-16"
+				initial="hidden"
+				whileInView="visible"
+				variants={fadeInUp}>
 				<End />
-			</div>
+			</motion.div>
 
-			<div id="contact" className="mt-6">
-				<div className="-mx-6 md:-mx-12">
-					<Footer />
-				</div>
+			<div
+				id="contact"
+				className="mt-6 lg:mt-16 -mx-6 md:-mx-12 lg:-mx-20">
+				<Footer />
 			</div>
 		</div>
 	);
@@ -114,6 +149,22 @@ function App() {
 				<Route
 					path="/signup"
 					element={<SignupPage />}
+				/>
+				<Route
+					path="/admin/testimoni"
+					element={
+						<ProtectedRoute role="admin">
+							<TestimoniAdmin />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/admin/menu"
+					element={
+						<ProtectedRoute role="admin">
+							<MenuAdmin />
+						</ProtectedRoute>
+					}
 				/>
 				<Route
 					path="/admin/dashboard"
