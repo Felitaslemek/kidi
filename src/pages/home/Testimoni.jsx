@@ -126,7 +126,7 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-hidden w-full grid-rows-2">
+			<div className="overflow-hidden w-full grid-rows-2 gap-4">
 				<motion.div
 					className="flex gap-5"
 					style={{ minWidth: "max-content" }}
