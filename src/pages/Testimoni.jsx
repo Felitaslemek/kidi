@@ -101,7 +101,7 @@ function Testimonial() {
 
 	return (
 		<div className="flex flex-col gap-5 md:gap-7">
-			<div className="text-center flex flex-col gap-4 mt-5 md:mt-7">
+			<div className="text-center flex flex-col gap-4">
 				<p className="text-sm font-regular text-color_nuetral_600_light md:text-base">
 					Testimoni
 				</p>
@@ -141,7 +141,7 @@ function Testimonial() {
 
 			{/* Button ke Testimoni Input */}
 			<button
-				 onClick={() => setShowForm(!showForm)}
+				// onClick={() => setShowForm(!showForm)}
 				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex">
 				Berikan testimoni
 				<span className="ml-2">
@@ -164,7 +164,7 @@ function Testimonial() {
 				</span>
 			</button>
 
-			 {showForm && (
+			{/* {showForm && (
 				<div className="mt-6 p-6 bg-white rounded-lg shadow-md">
 					<form
 						onSubmit={handleSubmit}
@@ -216,7 +216,7 @@ function Testimonial() {
 						</button>
 					</form>
 					</div> 
-			)}
+			)}*/}
 		</div>
 	);
 }

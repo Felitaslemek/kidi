@@ -53,7 +53,20 @@ const Footer = () => {
 						</h3>
 						<ul className="mt-2 text-xs">
 							<li>
-								<a className="text-regular text-color_nuetral_600_light hover:underline">
+								<a
+									onClick={() => {
+										const phoneNumber =
+											"6281325181773";
+										const message =
+											encodeURIComponent(
+												"Halo, saya ingin memesan produk Anda."
+											);
+										window.open(
+											`https://wa.me/${phoneNumber}?text=${message}`,
+											"_blank"
+										);
+									}}
+									className="text-regular text-color_nuetral_600_light hover:underline">
 									WhatsApp
 								</a>
 							</li>
