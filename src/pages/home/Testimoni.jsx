@@ -1,15 +1,78 @@
 import React, {
 	useState,
 	useEffect,
+	useRef,
 } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import {
+	motion,
+	useAnimation,
+} from "framer-motion"; // Import Framer Motion
 import { Star } from "lucide-react";
 import {
 	getTestimoniList,
 	addTestimoniWithLimit,
 } from "../../utils/storeUtils";
 
-function Testimonial() {
+const TestimonialsCarousel = ({
+	testimonials,
+}) => {
+	const controls = useAnimation();
+	const carouselRef = useRef(null);
+
+	const handleDragEnd = () => {
+		controls.start({
+			x: ["0%", "-100%"],
+			transition: {
+				repeat: Infinity,
+				duration: 100,
+				ease: "linear",
+			},
+		});
+	};
+
+	return (
+		<div className="overflow-hidden w-full grid-rows-2 gap-4">
+			<motion.div
+				className="flex gap-5 cursor-grab active:cursor-grabbing"
+				style={{ minWidth: "max-content" }}
+				animate={controls}
+				transition={{
+					repeat: Infinity,
+					duration: 100,
+					ease: "linear",
+				}}
+				drag="x"
+				dragConstraints={{
+					left: -2000,
+					right: 0,
+				}}
+				dragElastic={0.1}
+				onDragStart={() => controls.stop()}
+				onDragEnd={handleDragEnd}
+				ref={carouselRef}>
+				{testimonials
+					.concat(testimonials)
+					.map((testimonial, index) => (
+						<div
+							key={index}
+							className="bg-color_nuetral_100_light p-6 rounded-lg w-80 flex-shrink-0">
+							<h3 className="font-semibold mb-2">
+								{testimonial.name}
+							</h3>
+							<p className="text-gray-600 mb-4">
+								{testimonial.pesan}
+							</p>
+							<StarRating
+								rating={testimonial.rating}
+							/>
+						</div>
+					))}
+			</motion.div>
+		</div>
+	);
+};
+
+const Testimonial = () => {
 	const [testimonials, setTestimonials] =
 		useState([]);
 	const [showForm, setShowForm] = useState(false);
@@ -20,7 +83,6 @@ function Testimonial() {
 			rating: 0,
 		});
 
-	// Mengambil daftar testimoni saat komponen dimuat
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
@@ -84,30 +146,6 @@ function Testimonial() {
 		}
 	};
 
-	const StarRating = ({
-		rating,
-		onStarClick,
-	}) => (
-		<div className="flex gap-1">
-			{[1, 2, 3, 4, 5].map((star) => (
-				<button
-					key={star}
-					onClick={() =>
-						onStarClick && onStarClick(star)
-					}
-					className="focus:outline-none">
-					<Star
-						className={`w-5 h-5 ${
-							star <= rating
-								? "fill-blue-500 text-blue-500"
-								: "text-gray-300"
-						}`}
-					/>
-				</button>
-			))}
-		</div>
-	);
-
 	return (
 		<div className="flex flex-col gap-5 md:gap-7">
 			<div className="text-center flex flex-col gap-4">
@@ -126,39 +164,9 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-hidden w-full grid-rows-2 gap-4">
-				<motion.div
-					className="flex gap-5"
-					style={{ minWidth: "max-content" }}
-					animate={{ x: ["0%", "-100%"] }}
-					transition={{
-						repeat: Infinity,
-						duration: 100,
-						ease: "linear",
-					}}
-					whileHover={{
-						animationPlayState: "paused",
-					}} // Pause animation saat hover
-				>
-					{testimonials
-						.concat(testimonials)
-						.map((testimonial, index) => (
-							<div
-								key={index}
-								className="bg-color_nuetral_100_light p-6 rounded-lg w-80 flex-shrink-0">
-								<h3 className="font-semibold mb-2">
-									{testimonial.name}
-								</h3>
-								<p className="text-gray-600 mb-4">
-									{testimonial.pesan}
-								</p>
-								<StarRating
-									rating={testimonial.rating}
-								/>
-							</div>
-						))}
-				</motion.div>
-			</div>
+			<TestimonialsCarousel
+				testimonials={testimonials}
+			/>
 
 			<button
 				onClick={() => setShowForm(!showForm)}
@@ -221,6 +229,27 @@ function Testimonial() {
 			)}
 		</div>
 	);
-}
+};
+
+const StarRating = ({ rating, onStarClick }) => (
+	<div className="flex gap-1">
+		{[1, 2, 3, 4, 5].map((star) => (
+			<button
+				key={star}
+				onClick={() =>
+					onStarClick && onStarClick(star)
+				}
+				className="focus:outline-none">
+				<Star
+					className={`w-5 h-5 ${
+						star <= rating
+							? "fill-blue-500 text-blue-500"
+							: "text-gray-300"
+					}`}
+				/>
+			</button>
+		))}
+	</div>
+);
 
 export default Testimonial;
