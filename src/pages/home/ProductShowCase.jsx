@@ -64,9 +64,9 @@ function ProductShowcase() {
 								height:
 									hoveredItem === item.id
 										? "100%"
-										: "0%",
+										: "30%",
 							}}
-							initial={{ height: "0%" }}
+							initial={{ height: "30%" }}
 							transition={{
 								duration: 0.4,
 								ease: "linear",
@@ -76,13 +76,13 @@ function ProductShowcase() {
 								{item.name}
 							</span>
 							{/* Harga Produk */}
-							<span className="font-regular text-sm">
+							<span className="font-regular text-base">
 								{formatCurrency(
 									item.price ?? "0"
 								)}
 							</span>
 							{/* Teks Tambahan */}
-							<p className="text-base text-center mt-2">
+							<p className="text-sm text-center mt-2">
 								Varian: {item.variant}
 							</p>
 						</motion.div>
