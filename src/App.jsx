@@ -90,7 +90,7 @@ const HomePage = () => {
 			</motion.div>
 
 			<motion.div
-				className="mt-6 lg:mt-16"
+				className="mt-8 lg:mt-16"
 				initial="hidden"
 				whileInView="visible"
 				variants={fadeInUp}>
@@ -99,7 +99,7 @@ const HomePage = () => {
 
 			<motion.div
 				id="menu"
-				className="mt-6 lg:mt-16"
+				className="mt-8 lg:mt-16"
 				initial="hidden"
 				whileInView="visible"
 				variants={fadeInUp}>
@@ -108,7 +108,7 @@ const HomePage = () => {
 
 			<motion.div
 				id="testimonials"
-				className="mt-6 lg:mt-16"
+				className="mt-8 lg:mt-16"
 				initial="hidden"
 				whileInView="visible"
 				variants={fadeInUp}>
@@ -116,7 +116,7 @@ const HomePage = () => {
 			</motion.div>
 
 			<motion.div
-				className="mt-6 lg:mt-16"
+				className="mt-8 lg:mt-16"
 				initial="hidden"
 				whileInView="visible"
 				variants={fadeInUp}>
@@ -125,7 +125,7 @@ const HomePage = () => {
 
 			<div
 				id="contact"
-				className="mt-6 lg:mt-16 -mx-6 md:-mx-12 lg:-mx-20">
+				className="mt-8 lg:mt-16 -mx-6 md:-mx-12 lg:-mx-20">
 				<Footer />
 			</div>
 		</div>
