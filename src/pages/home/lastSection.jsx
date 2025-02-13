@@ -16,7 +16,7 @@ const End = () => {
 			{/* Embed Google Maps */}
 			<div className="md:flex md:gap-4">
 				{/* Google Maps Embed */}
-				<div className="hidden lg:flex w-full h-80 md:w-2/3 lg:h-auto overflow-hidden rounded-lg">
+				<div className="hidden md:flex w-full h-80 md:w-2/3 lg:h-auto overflow-hidden rounded-lg">
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.63778145287!2d110.4187902871427!3d-7.011285324295994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d2fd7afca71%3A0x921193cb14508ddb!2sKedai%20Manang!5e0!3m2!1sen!2sid!4v1699875207000!5m2!1sen!2sid"
 						width="100%"
@@ -37,7 +37,7 @@ const End = () => {
 					<img
 						src={Citul}
 						alt="churros"
-						className="hidden lg:flex w-full h-1/2 object-cover rounded-lg"
+						className="hidden md:flex w-full h-1/2 object-cover rounded-lg"
 					/>
 				</div>
 			</div>
