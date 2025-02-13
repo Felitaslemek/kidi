@@ -1,5 +1,6 @@
 import React from "react";
 import tampilan from "../../assets/tampilan.png";
+import Citul from "../../assets/citul.jpg";
 
 const End = () => {
 	return (
@@ -11,13 +12,36 @@ const End = () => {
 			<p className="text-base text-color_primary_200_light font-regular md:text-lg">
 				Ya di Kedai Manang dong!
 			</p>
-			<div className="rounded-lg">
-				<img
-					src={tampilan}
-					alt="tampilan"
-					className="rounded-sm object-cover"
-				/>
+
+			{/* Embed Google Maps */}
+			<div className="md:flex md:gap-4">
+				{/* Google Maps Embed */}
+				<div className="hidden lg:flex w-full h-80 md:w-2/3 lg:h-auto overflow-hidden rounded-lg">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.63778145287!2d110.4187902871427!3d-7.011285324295994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d2fd7afca71%3A0x921193cb14508ddb!2sKedai%20Manang!5e0!3m2!1sen!2sid!4v1699875207000!5m2!1sen!2sid"
+						width="100%"
+						height="100%"
+						style={{ border: 0 }}
+						allowFullScreen={true}
+						loading="lazy"
+						referrerPolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+
+				{/* Gambar Samping */}
+				<div className="md:flex md:flex-col md:gap-4 md:w-1/3">
+					<img
+						src={tampilan}
+						alt="toko"
+						className="w-full h-1/2 object-cover rounded-lg"
+					/>
+					<img
+						src={Citul}
+						alt="churros"
+						className="hidden lg:flex w-full h-1/2 object-cover rounded-lg"
+					/>
+				</div>
 			</div>
+
 			<div className="w-full">
 				<a
 					href="https://www.google.com/maps/place/Kedai+Manang+(Churros,+Corndog,+Citul,+Otak-otak+crispy)/@-7.0060695,110.4187903,15z/data=!4m6!3m5!1s0x2e708d2fd7afca71:0x921193cb14508ddb!8m2!3d-7.0112853!4d110.4365921!16s%2Fg%2F11kpnvp_7c?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"

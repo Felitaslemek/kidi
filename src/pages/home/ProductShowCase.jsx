@@ -39,7 +39,7 @@ function ProductShowcase() {
 			</div>
 
 			{/* Produk */}
-			<div className="grid gap-4 grid-cols-2 lg:grid-cols-4 md:gap-4">
+			<div className="grid gap-4 grid-cols-2 lg:grid-cols-4 md:gap-4 z-0">
 				{menuItems.map((item) => (
 					<div
 						key={item.id}
@@ -58,15 +58,18 @@ function ProductShowcase() {
 						/>
 
 						{/* Overlay Animasi */}
+						<div className="absolute bottom-0 left-0 right-0 h-14 bg-color_primary_500_light p-3 text-color_nuetral_100_light flex flex-col justify-center items-center rounded-2xl">
+							‎
+						</div>
 						<motion.div
-							className="absolute bottom-0 left-0 right-0 bg-color_primary_500_light text-color_nuetral_100_light p-3 flex flex-col justify-center items-center rounded-2xl"
+							className="absolute bottom-0 left-0 right-0 bg-color_primary_500_light text-color_nuetral_100_light flex flex-col justify-center items-center rounded-2xl"
 							animate={{
 								height:
 									hoveredItem === item.id
 										? "100%"
-										: "30%",
+										: "0%",
 							}}
-							initial={{ height: "30%" }}
+							initial={{ height: "0%" }}
 							transition={{
 								duration: 0.4,
 								ease: "linear",
@@ -76,13 +79,13 @@ function ProductShowcase() {
 								{item.name}
 							</span>
 							{/* Harga Produk */}
-							<span className="font-regular text-base">
+							<span className="font-regular text-base mt-1">
 								{formatCurrency(
 									item.price ?? "0"
 								)}
 							</span>
 							{/* Teks Tambahan */}
-							<p className="text-sm text-center mt-2">
+							<p className="text-base text-center mt-3 text-color_primary_200_light">
 								Varian: {item.variant}
 							</p>
 						</motion.div>

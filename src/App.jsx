@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import {
 	HashRouter,
 	BrowserRouter as Router,
@@ -19,6 +19,7 @@ import Dashboard from "./pages/admin/Dashboard";
 import ProtectedRoute from "./pages/auth/ProtectedRouter";
 import TestimoniAdmin from "./pages/admin/Testimoni";
 import MenuAdmin from "./pages/admin/Menu";
+import Bubbleicon from "./pages/home/icon";
 
 const fadeInUp = {
 	hidden: { opacity: 0, y: 50 },
@@ -77,9 +78,46 @@ const HomePage = () => {
 		}
 	};
 
+	const [showBubble, setShowBubble] =
+		useState(true);
+
+	// Fungsi untuk mengecek apakah sudah di bawah halaman
+	const handleScroll = () => {
+		const scrollPosition =
+			window.innerHeight + window.scrollY;
+		const pageHeight =
+			document.documentElement.scrollHeight;
+		if (scrollPosition >= pageHeight - 50) {
+			setShowBubble(false); // Sembunyikan jika sudah sampai bawah
+		} else {
+			setShowBubble(true); // Tampilkan jika belum sampai bawah
+		}
+	};
+
+	// Menambahkan event listener saat komponen dipasang
+	useEffect(() => {
+		window.addEventListener(
+			"scroll",
+			handleScroll
+		);
+		return () => {
+			window.removeEventListener(
+				"scroll",
+				handleScroll
+			);
+		};
+	}, []);
+
 	return (
 		<div className="min-h-screen bg-color_background_light overflow-x-hidden px-6 md:px-14 lg:px-20">
 			<Navbar scrollToSection={scrollToSection} />
+
+			{/* Bubble Icon (Disembunyikan jika sudah sampai bawah) */}
+			{showBubble && (
+				<div className="fixed flex z-99 right-6 bottom-20 lg:right-20 lg:bottom-20">
+					<Bubbleicon />
+				</div>
+			)}
 
 			<motion.div
 				id="location"
@@ -99,7 +137,7 @@ const HomePage = () => {
 
 			<motion.div
 				id="menu"
-				className="mt-8 lg:mt-16"
+				className="mt-8 lg:mt-16 z-0"
 				initial="hidden"
 				whileInView="visible"
 				variants={fadeInUp}>

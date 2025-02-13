@@ -15,8 +15,29 @@ const Footer = () => {
 					</p>
 				</div>
 
+				{/* Icon */}
+				<div className="hidden lg:flex gap-3">
+					<button
+						onClick={() => {
+							const phoneNumber = "6281325181773"; // Ganti dengan nomor WhatsApp penjual (format internasional tanpa +)
+							const message = encodeURIComponent(
+								"Halo, saya ingin memesan produk Anda."
+							);
+							window.open(
+								`https://wa.me/${phoneNumber}?text=${message}`,
+								"_blank"
+							);
+						}}
+						className="flex justify-center items-center">
+						<img
+							src="https://img.icons8.com/fluency/48/000000/whatsapp.png"
+							alt="whatsapp"
+						/>
+					</button>
+				</div>
+
 				{/* Servis Section */}
-				<div className="flex gap-12">
+				<div className="flex gap-8 lg:gap-20">
 					<div>
 						<h3 className="font-semibold text-color_nuetral_900_light text-base">
 							Servis
