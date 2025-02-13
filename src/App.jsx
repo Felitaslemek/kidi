@@ -114,7 +114,7 @@ const HomePage = () => {
 
 			{/* Bubble Icon (Disembunyikan jika sudah sampai bawah) */}
 			{showBubble && (
-				<div className="fixed flex z-99 right-6 bottom-20 lg:right-20 lg:bottom-20">
+				<div className="fixed flex z-99 right-6 bottom-12 lg:right-20 lg:bottom-20">
 					<Bubbleicon />
 				</div>
 			)}

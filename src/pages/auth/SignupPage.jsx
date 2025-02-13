@@ -132,7 +132,7 @@ const SignupPage = ({ onClose }) => {
 				{/* Tombol Kembali */}
 				<button
 					onClick={handleBack}
-					className="absolute top-12 left-12">
+					className="absolute top-12 left-6 lg:left-12">
 					<svg
 						width="24"
 						height="24"
