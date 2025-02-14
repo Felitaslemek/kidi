@@ -1,15 +1,78 @@
 import React, {
 	useState,
 	useEffect,
+	useRef,
 } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import {
+	motion,
+	useAnimation,
+} from "framer-motion"; // Import Framer Motion
 import { Star } from "lucide-react";
 import {
 	getTestimoniList,
 	addTestimoniWithLimit,
 } from "../../utils/storeUtils";
 
-function Testimonial() {
+const TestimonialsCarousel = ({
+	testimonials,
+}) => {
+	const controls = useAnimation();
+	const carouselRef = useRef(null);
+
+	const handleDragEnd = () => {
+		controls.start({
+			x: ["0%", "-100%"],
+			transition: {
+				repeat: Infinity,
+				duration: 100,
+				ease: "linear",
+			},
+		});
+	};
+
+	return (
+		<div className="overflow-hidden w-full grid-rows-2 gap-4">
+			<motion.div
+				className="flex gap-5 cursor-grab active:cursor-grabbing"
+				style={{ minWidth: "max-content" }}
+				animate={controls}
+				transition={{
+					repeat: Infinity,
+					duration: 100,
+					ease: "linear",
+				}}
+				drag="x"
+				dragConstraints={{
+					left: -2000,
+					right: 0,
+				}}
+				dragElastic={0.1}
+				onDragStart={() => controls.stop()}
+				onDragEnd={handleDragEnd}
+				ref={carouselRef}>
+				{testimonials
+					.concat(testimonials)
+					.map((testimonial, index) => (
+						<div
+							key={index}
+							className="bg-color_nuetral_100_light p-6 rounded-lg w-80 flex-shrink-0">
+							<h3 className="font-semibold mb-2">
+								{testimonial.name}
+							</h3>
+							<p className="text-gray-600 mb-4">
+								{testimonial.pesan}
+							</p>
+							<StarRating
+								rating={testimonial.rating}
+							/>
+						</div>
+					))}
+			</motion.div>
+		</div>
+	);
+};
+
+const Testimonial = () => {
 	const [testimonials, setTestimonials] =
 		useState([]);
 	const [showForm, setShowForm] = useState(false);
@@ -20,7 +83,6 @@ function Testimonial() {
 			rating: 0,
 		});
 
-	// Mengambil daftar testimoni saat komponen dimuat
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
@@ -84,30 +146,6 @@ function Testimonial() {
 		}
 	};
 
-	const StarRating = ({
-		rating,
-		onStarClick,
-	}) => (
-		<div className="flex gap-1">
-			{[1, 2, 3, 4, 5].map((star) => (
-				<button
-					key={star}
-					onClick={() =>
-						onStarClick && onStarClick(star)
-					}
-					className="focus:outline-none">
-					<Star
-						className={`w-5 h-5 ${
-							star <= rating
-								? "fill-blue-500 text-blue-500"
-								: "text-gray-300"
-						}`}
-					/>
-				</button>
-			))}
-		</div>
-	);
-
 	return (
 		<div className="flex flex-col gap-5 md:gap-7">
 			<div className="text-center flex flex-col gap-4">
@@ -126,44 +164,32 @@ function Testimonial() {
 				</p>
 			</div>
 
-			<div className="overflow-hidden w-full grid-rows-2 gap-4">
-				<motion.div
-					className="flex gap-5"
-					style={{ minWidth: "max-content" }}
-					animate={{ x: ["0%", "-100%"] }}
-					transition={{
-						repeat: Infinity,
-						duration: 100,
-						ease: "linear",
-					}}
-					whileHover={{
-						animationPlayState: "paused",
-					}} // Pause animation saat hover
-				>
-					{testimonials
-						.concat(testimonials)
-						.map((testimonial, index) => (
-							<div
-								key={index}
-								className="bg-color_nuetral_100_light p-6 rounded-lg w-80 flex-shrink-0">
-								<h3 className="font-semibold mb-2">
-									{testimonial.name}
-								</h3>
-								<p className="text-gray-600 mb-4">
-									{testimonial.pesan}
-								</p>
-								<StarRating
-									rating={testimonial.rating}
-								/>
-							</div>
-						))}
-				</motion.div>
-			</div>
+			<TestimonialsCarousel
+				testimonials={testimonials}
+			/>
 
 			<button
 				onClick={() => setShowForm(!showForm)}
-				className="bg-blue-500 text-white rounded-lg py-3 justify-center flex font-semibold hover:bg-blue-600 transition-colors">
+				className="bg-color_primary_500_light text-color_nuetral_100_light rounded-lg py-3 justify-center flex font-semibold hover:bg-color_primary_300_light transition-colors">
 				Berikan testimoni
+				<span className="ml-2 items-center">
+					<svg
+						width="21"
+						height="21"
+						viewBox="0 0 20 22"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						className="inline-block align-middle">
+						<path
+							d="M12.4531 16.1833C12.2948 16.1833 12.1364 16.125 12.0114 16C11.7698 15.7583 11.7698 15.3583 12.0114 15.1166L16.6281 10.5L12.0114 5.88331C11.7698 5.64164 11.7698 5.24164 12.0114 4.99998C12.2531 4.75831 12.6531 4.75831 12.8948 4.99998L17.9531 10.0583C18.1948 10.3 18.1948 10.7 17.9531 10.9416L12.8948 16C12.7698 16.125 12.6114 16.1833 12.4531 16.1833Z"
+							fill="#FFFFFF"
+						/>
+						<path
+							d="M17.3698 11.125H3.34476C3.0031 11.125 2.71976 10.8417 2.71976 10.5C2.71976 10.1583 3.0031 9.875 3.34476 9.875H17.3698C17.7114 9.875 17.9948 10.1583 17.9948 10.5C17.9948 10.8417 17.7114 11.125 17.3698 11.125Z"
+							fill="#FFFFFF"
+						/>
+					</svg>
+				</span>
 			</button>
 
 			{showForm && (
@@ -221,6 +247,27 @@ function Testimonial() {
 			)}
 		</div>
 	);
-}
+};
+
+const StarRating = ({ rating, onStarClick }) => (
+	<div className="flex gap-1">
+		{[1, 2, 3, 4, 5].map((star) => (
+			<button
+				key={star}
+				onClick={() =>
+					onStarClick && onStarClick(star)
+				}
+				className="focus:outline-none">
+				<Star
+					className={`w-5 h-5 ${
+						star <= rating
+							? "fill-blue-500 text-blue-500"
+							: "text-gray-300"
+					}`}
+				/>
+			</button>
+		))}
+	</div>
+);
 
 export default Testimonial;

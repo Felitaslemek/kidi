@@ -66,7 +66,7 @@ const Information = () => {
 			</div>
 
 			{/* Teks */}
-			<div className="flex flex-col justify-center gap-4 md:w-full md:flex-row md:items-center md:justify-between">
+			<div className="flex flex-col justify-center items-center gap-4 md:w-full md:flex-row md:justify-between">
 				<div className="flex flex-col gap-1">
 					<p className="font-semibold text-xl md:text-2xl">
 						{storeStatus === "open"
@@ -91,7 +91,7 @@ const Information = () => {
 					target="_blank"
 					rel="noopener noreferrer">
 					<button
-						className={`bg-color_nuetral_100_light px-4 py-2 rounded-lg text-sm font-semibold md:text-lg flex gap-2 transition-colors 
+						className={`bg-color_nuetral_100_light items-center px-4 py-2 rounded-lg text-sm font-semibold md:text-lg flex gap-2 transition-colors 
     					${
 								storeStatus === "open"
 									? "text-color_primary_500_light hover:bg-color_primary_100_light"

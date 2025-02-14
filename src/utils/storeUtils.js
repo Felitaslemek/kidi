@@ -13,23 +13,23 @@ export const formatCurrency = (value) => {
 
 // Fungsi untuk memeriksa status login pengguna
 export const isUserLoggedIn = () => {
-    return localStorage.getItem("user") !== null;
+    return localStorage.getItem("users") !== null;
 };
 
 // Fungsi untuk menyimpan data pengguna ke localStorage
 export const saveUserToLocalStorage = (user) => {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("users", JSON.stringify(user));
 };
 
 // Fungsi untuk mendapatkan data pengguna dari localStorage
 export const getUserFromLocalStorage = () => {
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("users");
     return user ? JSON.parse(user) : null;
 };
 
 // Fungsi untuk menghapus data pengguna dari localStorage
 export const logoutUser = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("users");
 };
 
 // Fungsi untuk mendapatkan data pengguna dari Firestore berdasarkan UID
